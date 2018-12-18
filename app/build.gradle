@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+def ext = rootProject.ext
+def cfg = ext.android
+
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+apply from: "../dependencies.gradle"
+dependencies {
+    implementation 'dc.common:logger:latest.integration'
+    implementation project(':struct:base')
+    implementation project(':struct:bridge')
+
+    implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
+}

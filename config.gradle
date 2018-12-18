@@ -1,0 +1,124 @@
+def getsInfo() {
+    try {
+        return "gets".execute().text
+    } catch (Exception e) {
+        return e.getMessage().replace("\"", "")
+    }
+}
+
+def getCount(boolean isDebug) {
+//    if (isDebug) return Integer.parseInt(new Date().format("yyyyMMddHH"))
+//    //use system.env set debug.
+//    return "git rev-list HEAD --first-parent --count".execute().text.trim().toInteger()+961
+    return 1
+}
+
+def getTag() {
+//    def cmd = 'git describe --tags'
+//    def version = cmd.execute().text.trim()
+//
+//    def pattern = "-(\\d+)-g"
+//    def matcher = version =~ pattern
+//
+//    if (matcher) {
+//        version = version.substring(0, matcher.start()) + "." + matcher[0][1]
+//    } else {
+////        version = version + ".0"
+//    }
+//    return version.replaceFirst("v", "")
+    return "1.0"
+}
+
+def is_gradle_3() {
+    return hasProperty('GRADLE_3') && GRADLE_3.equalsIgnoreCase('TRUE')
+}
+
+def buildWithTinker() {
+    return hasProperty("TINKER_ENABLE") ? Boolean.parseBoolean(TINKER_ENABLE) : false
+}
+
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+/**
+ * 如果只想在Release中打开tinker，可以把tinkerEnable赋值为这个函数的return
+ * @return 是否为release
+ */
+def isRelease() {
+    Gradle gradle = getGradle()
+    String tskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+
+    Pattern pattern;
+    if (tskReqStr.contains("assemble")) {
+        println tskReqStr
+        pattern = Pattern.compile("assemble(\\w*)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w*)(Release|Debug)")
+    }
+    Matcher matcher = pattern.matcher(tskReqStr)
+
+    if (matcher.find()) {
+        String task = matcher.group(0).toLowerCase()
+        println("[BuildType] Current task: " + task)
+        return task.contains("release")
+    } else {
+        println "[BuildType] NO MATCH FOUND"
+        return true;
+    }
+}
+
+ext {
+    gets = "\"" + getsInfo() + "\""
+    vc = getCount(false)
+    vn = getTag()
+    tinker = buildWithTinker() || isRelease()
+    isRelease = isRelease()
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.3",
+            minSdkVersion    : 19,
+            targetSdkVersion : 27,
+            applicationId    : "dc.test.sample",
+            versionCode      : getCount(true),
+            versionName      : vn,
+            abiFilters       : "armeabi"
+    ]
+
+    aider = [
+            suffix     : ".debug",
+            PKG_DEBUG  : "dc.test.sample.debug",
+            PKG_RELEASE: "dc.test.sample"
+    ]
+
+    //Version
+    supportLibrary = "27.1.1"
+
+    retrofit2Version = "2.4.0"
+    okhttpVersion = "3.10.0"
+    gsonConvertVersion = "2.0.2"
+
+    butterknifeVersion = "8.8.1"
+    daggerVersion = "2.19"
+
+    depes = [
+            "v7"        : "com.android.support:appcompat-v7:${supportLibrary}",
+            "constraint": "com.android.support.constraint:constraint-layout:1.1.0",
+    ]
+
+    tis = [
+            "junit": "junit:junit:4.12",
+    ]
+
+    atis = [
+            "test"    : "com.android.support.test:runner:1.0.2",
+            "espresso": "com.android.support.test.espresso:espresso-core:3.0.2",
+    ]
+
+    runs = [
+    ]
+
+    keys = [
+    ]
+
+
+}

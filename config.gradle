@@ -120,6 +120,26 @@ ext {
     keys = [
     ]
 
+    struct_core = [
+            "name"   : "core",
+            "desc"   : "core for struct",
+            "version": "1.0.0",
+            "group"  : "dc.android",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
 
+    struct_bridge = [
+            "name"   : "bridge",
+            "desc"   : "bridge for struct",
+            "version": "1.0.0",
+            "group"  : "dc.android",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
 
 }

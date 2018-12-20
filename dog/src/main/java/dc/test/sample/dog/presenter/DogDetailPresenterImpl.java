@@ -1,15 +1,13 @@
 package dc.test.sample.dog.presenter;
 
 import android.content.Intent;
-
+import dc.android.arch.present.BasePresenter;
+import dc.android.common.BridgeOpcode;
 import dc.test.sample.Constants;
 import dc.test.sample.R;
 import dc.test.sample.dog.contract.IDogDetailPresenter;
 import dc.test.sample.dog.contract.IDogDetailView;
 import dc.test.sample.domain.DogBean;
-
-import dc.android.arch.present.BasePresenter;
-import dc.android.common.SelfOpcode;
 
 /**
  * @author senrsl
@@ -33,7 +31,7 @@ public class DogDetailPresenterImpl<V extends IDogDetailView> extends BasePresen
     @Override
     public void refreshValid() {
         if (!isViewAttached()) return;
-        if (SelfOpcode.DEFAULT == id) getView().showToast(ctx.getString(R.string.invalid_data));
+        if (BridgeOpcode.DEFAULT == id) getView().showToast(ctx.getString(R.string.invalid_data));
         else refreshData();
     }
 
@@ -56,7 +54,7 @@ public class DogDetailPresenterImpl<V extends IDogDetailView> extends BasePresen
         Intent intent = new Intent();
         intent.putExtra(Constants.KEY_VAR_1, bean);
         intent.putExtra(Constants.KEY_VAR_2, position);
-        getView().setResult(SelfOpcode.DEFAULT, intent);
+        getView().setResult(BridgeOpcode.DEFAULT, intent);
     }
 
 

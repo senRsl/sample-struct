@@ -92,6 +92,8 @@ ext {
 
     //Version
     supportLibrary = "27.1.1"
+    coreVersion = "1.0.1"
+    bridgeVersion = "1.0.1"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -103,6 +105,8 @@ ext {
     depes = [
             "v7"        : "com.android.support:appcompat-v7:${supportLibrary}",
             "constraint": "com.android.support.constraint:constraint-layout:1.1.0",
+//            "struct_core": "dc.android:core:${coreVersion}",
+//            "struct_bridge": "dc.android:bridge:${bridgeVersion}",
     ]
 
     tis = [
@@ -123,7 +127,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -134,7 +138,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

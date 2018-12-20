@@ -1,13 +1,5 @@
 package dc.test.sample.dog.view.activity;
 
-import dc.test.sample.Constants;
-import dc.test.sample.R;
-import dc.test.sample.bridge.BaseSampleActivity;
-import dc.test.sample.dog.contract.IDogDetailPresenter;
-import dc.test.sample.dog.contract.IDogDetailView;
-import dc.test.sample.dog.presenter.DogDetailPresenterImpl;
-import dc.test.sample.domain.DogBean;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,8 +7,15 @@ import android.os.Bundle;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnTextChanged;
-import dc.android.common.SelfOpcode;
+import dc.android.common.BridgeOpcode;
 import dc.common.Logger;
+import dc.test.sample.Constants;
+import dc.test.sample.R;
+import dc.test.sample.bridge.BaseSampleActivity;
+import dc.test.sample.dog.contract.IDogDetailPresenter;
+import dc.test.sample.dog.contract.IDogDetailView;
+import dc.test.sample.dog.presenter.DogDetailPresenterImpl;
+import dc.test.sample.domain.DogBean;
 
 /**
  * @author senrsl
@@ -72,8 +71,8 @@ public class DogDetailActivity extends BaseSampleActivity implements IDogDetailV
     @Override
     protected void initData() {
         super.initData();
-        int id = getIntent().getIntExtra(Constants.KEY_ID, SelfOpcode.DEFAULT);//分别对应 CandyContext.KEY_EB_ID 与CandyOpcode.DEFAULT
-        int position = getIntent().getIntExtra(Constants.KEY_VAR_1, SelfOpcode.DEFAULT);
+        int id = getIntent().getIntExtra(Constants.KEY_ID, BridgeOpcode.DEFAULT);//分别对应 CandyContext.KEY_EB_ID 与CandyOpcode.DEFAULT
+        int position = getIntent().getIntExtra(Constants.KEY_VAR_1, BridgeOpcode.DEFAULT);
 
         presenter = new DogDetailPresenterImpl();
         presenter.attachView(this, this);

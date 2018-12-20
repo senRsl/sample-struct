@@ -3,16 +3,14 @@ package dc.test.sample;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-
+import butterknife.BindArray;
+import butterknife.OnClick;
+import dc.android.common.BridgeOpcode;
+import dc.android.common.utils.KeepInstance;
+import dc.common.Logger;
 import dc.test.sample.bridge.BaseSampleActivity;
 import dc.test.sample.dog.view.activity.DogListActivity;
 import dc.test.sample.domain.DogBean;
-
-import butterknife.BindArray;
-import butterknife.OnClick;
-import dc.android.common.SelfOpcode;
-import dc.android.common.utils.KeepInstance;
-import dc.common.Logger;
 
 /**
  * @author senrsl
@@ -27,7 +25,7 @@ public class SampleActivity extends BaseSampleActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        KeepInstance.getInstance().setStatus(SelfOpcode.YES);
+        KeepInstance.getInstance().setStatus(BridgeOpcode.YES);
         setShowStatus(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);

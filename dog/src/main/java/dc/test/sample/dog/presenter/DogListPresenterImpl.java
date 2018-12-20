@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
-
+import dc.android.arch.present.BasePresenter;
+import dc.android.common.BridgeOpcode;
 import dc.test.sample.Constants;
 import dc.test.sample.dog.contract.IDogListPresenter;
 import dc.test.sample.dog.contract.IDogListView;
 import dc.test.sample.dog.view.activity.DogDetailActivity;
 import dc.test.sample.domain.DogBean;
-
-import dc.android.arch.present.BasePresenter;
-import dc.android.common.SelfOpcode;
 
 /**
  * @author senrsl
@@ -66,10 +64,10 @@ public class DogListPresenterImpl<V extends IDogListView> extends BasePresenter<
     public void detailResult(int resultCode, Intent data) {
         if (!isViewAttached()) return;
         switch (resultCode) {
-            case SelfOpcode.DEFAULT:
+            case BridgeOpcode.DEFAULT:
                 DogBean dogBean = data.getParcelableExtra(Constants.KEY_VAR_1);
-                int position = data.getIntExtra(Constants.KEY_VAR_2, SelfOpcode.DEFAULT);
-                if (SelfOpcode.DEFAULT == position) break;
+                int position = data.getIntExtra(Constants.KEY_VAR_2, BridgeOpcode.DEFAULT);
+                if (BridgeOpcode.DEFAULT == position) break;
 
                 getView().updateAdapter(position, dogBean);
                 break;

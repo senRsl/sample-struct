@@ -1,5 +1,8 @@
 # Android
 
+[ ![Download](https://api.bintray.com/packages/senrsl/arch/core/images/download.svg) ](https://bintray.com/senrsl/arch/core/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/senrsl/arch/bridge/images/download.svg) ](https://bintray.com/senrsl/arch/bridge/_latestVersion)
+
 ## CodeStyle
 
 当前采用格式为 [CandyStyle.xml](doc/CandyStyle.xml)，实际应用中，应基于此模板根据实际情况修改使用。

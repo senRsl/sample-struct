@@ -6,6 +6,6 @@
 
     <include layout="@layout/layout_title" />
 
-    <include layout="@layout/layout_frame_fill" />
+    <include layout="@layout/layout_frame_wrap_height" />
 
 </LinearLayout>

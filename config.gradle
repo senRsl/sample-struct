@@ -127,7 +127,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -138,7 +138,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

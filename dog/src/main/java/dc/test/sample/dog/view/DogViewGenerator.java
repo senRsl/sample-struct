@@ -1,8 +1,8 @@
 package dc.test.sample.dog.view;
 
 import android.os.Bundle;
-
 import dc.test.sample.dog.view.fragment.DogListFragment;
+import dc.test.sample.dog.view.fragment.DogListWrapperFooterFragment;
 
 /**
  * @author senrsl
@@ -18,5 +18,15 @@ public class DogViewGenerator {
         Bundle bundleAll = new Bundle();
         dynamicFragment.setArguments(bundleAll);
         return dynamicFragment;
+    }
+
+
+    public static DogListWrapperFooterFragment generateDogListWrapperFooterFragment() {
+
+        Bundle args = new Bundle();
+
+        DogListWrapperFooterFragment fragment = new DogListWrapperFooterFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 }

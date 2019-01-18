@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.Intent;
 import dc.android.arch.present.BasePresenter;
 import dc.android.common.BridgeOpcode;
+import dc.common.Logger;
 import dc.test.sample.Constants;
 import dc.test.sample.dog.contract.IDogListPresenter;
 import dc.test.sample.dog.contract.IDogListView;
@@ -36,8 +37,12 @@ public class DogListPresenterImpl<V extends IDogListView> extends BasePresenter<
     @Override
     public void refreshDataList() {
         //从这里调用 interactor,返回show
-        listData = Constants.listDogs;
-        showData(listData);
+        int lastIndex = listData.size()+Constants.PAGE_NUM;
+        if(lastIndex>Constants.listDogs.size() )lastIndex = Constants.listDogs.size()-1;
+        List<DogBean> list = Constants.listDogs.subList(listData.size(), lastIndex);
+
+        listData.addAll(list);
+        showData(list);
     }
 
     @Override
@@ -68,7 +73,6 @@ public class DogListPresenterImpl<V extends IDogListView> extends BasePresenter<
                 DogBean dogBean = data.getParcelableExtra(Constants.KEY_VAR_1);
                 int position = data.getIntExtra(Constants.KEY_VAR_2, BridgeOpcode.DEFAULT);
                 if (BridgeOpcode.DEFAULT == position) break;
-
                 getView().updateAdapter(position, dogBean);
                 break;
         }

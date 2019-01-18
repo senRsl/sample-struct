@@ -1,10 +1,5 @@
 package dc.test.sample.dog.view.adapter;
 
-import dc.android.bridge.adapter.PurposeRecyclerAdapter;
-import dc.android.bridge.annotation.RecyclerItemViewId;
-import dc.test.sample.R;
-import dc.test.sample.domain.DogBean;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +7,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
+import dc.android.bridge.adapter.PurposeRecyclerAdapter;
+import dc.android.bridge.annotation.RecyclerItemViewId;
 import dc.common.Logger;
+import dc.test.sample.R;
+import dc.test.sample.domain.DogBean;
 
 /**
  * 此类仅与adapter通信
@@ -58,7 +57,7 @@ public class DogListViewHolder extends PurposeRecyclerAdapter.PurposeViewHolder<
     @OnClick({R.id.layout_item_dog, R.id.tv_name})
     void onViewClickedItem() {
         Logger.w(ctx, bean.toString());
-        adapter.getListenerClick().onClick(position, itemView);
+        if (null != adapter.getListenerClick()) adapter.getListenerClick().onClick(position, itemView);
     }
 
     @OnLongClick({R.id.tv_from})

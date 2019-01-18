@@ -1,15 +1,15 @@
 package dc.test.sample.dog.view.activity;
 
-import dc.test.sample.R;
-import dc.test.sample.bridge.BaseSampleActivity;
-import dc.test.sample.dog.view.DogViewGenerator;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.TextView;
 import butterknife.BindView;
+import dc.test.sample.Constants;
+import dc.test.sample.R;
+import dc.test.sample.bridge.BaseSampleActivity;
+import dc.test.sample.dog.view.DogViewGenerator;
 
 /**
  * @author senrsl
@@ -33,8 +33,9 @@ public class DogListActivity extends BaseSampleActivity {
     //3, 业务 相关变量
 
     //4, 上层通信
-    public static void start(Context context) {
+    public static void start(Context context, int listType) {
         Intent starter = new Intent(context, DogListActivity.class);
+        starter.putExtra(Constants.KEY_VAR_1, listType);
         context.startActivity(starter);
     }
 
@@ -53,9 +54,26 @@ public class DogListActivity extends BaseSampleActivity {
     @Override
     protected void initLayout() {
         super.initLayout();
-        tvTitle.setText(R.string.dog_title_list);
 
-        commitFragment(R.id.layout_container, DogViewGenerator.generateFragment());
+
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+
+        int listType = getIntent().getIntExtra(Constants.KEY_VAR_1, Constants.LIST_TYPE_SWIPE);
+        switch (listType) {
+            case Constants.LIST_TYPE_SWIPE:
+                commitFragment(R.id.layout_container, DogViewGenerator.generateFragment());
+                tvTitle.setText(R.string.dog_title_list);
+                break;
+            case Constants.LIST_TYPE_SWIPE_WRAPPER:
+            default:
+                commitFragment(R.id.layout_container, DogViewGenerator.generateDogListWrapperFooterFragment());
+                tvTitle.setText(R.string.dog_title_list_wrapper);
+                break;
+        }
     }
 
     //6,activity result 操作

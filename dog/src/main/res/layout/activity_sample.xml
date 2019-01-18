@@ -21,6 +21,12 @@
             android:text="@string/dog_title_list" />
 
         <Button
+            android:id="@+id/btn_list_dog_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dog_title_list_wrapper" />
+
+        <Button
             android:id="@+id/btn_add_dog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -19,4 +19,10 @@ public class Constants {
     public static final String KEY_VAR_2 = "var2";//对应 CandyContext.KEY_VAR_2
 
     public static final int REQ_DETAIL = 1;//对应 CandyOpcode.REQ_DETAIL
+
+    public static final int PAGE_NUM = 30;//对应 CandyContext.PAGE_NUM
+
+    public static final int LIST_TYPE_SWIPE = 0;
+    public static final int LIST_TYPE_SWIPE_WRAPPER = 1;
+
 }

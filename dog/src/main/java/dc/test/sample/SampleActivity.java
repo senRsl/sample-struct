@@ -46,11 +46,14 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_add_dog})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
-                DogListActivity.start(this);
+                DogListActivity.start(this, Constants.LIST_TYPE_SWIPE);
+                break;
+            case R.id.btn_list_dog_wrapper:
+                DogListActivity.start(this, Constants.LIST_TYPE_SWIPE_WRAPPER);
                 break;
             case R.id.btn_add_dog:
                 break;
@@ -62,11 +65,12 @@ public class SampleActivity extends BaseSampleActivity {
 
     private void generateFromXml() {
         Logger.w(dogs);
+        int i = 0;
         for (String dog : dogs) {
             Logger.w(dog);
             String[] dogValue = dog.split(",");
             Logger.w(dogValue);
-            DogBean bean = new DogBean(dogValue[0], dogValue[1], dogValue[2]);
+            DogBean bean = new DogBean(dogValue[0], dogValue[1] + i++, dogValue[2]);
             Constants.listDogs.add(bean);
         }
     }

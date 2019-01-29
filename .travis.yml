@@ -14,9 +14,21 @@ android:        # 配置信息
   - extra-android-m2repository
   # Support Library
   - extra-android-support
+
+
+before_script:
+# Create and start emulator
+- echo no | android create avd --force -n test -t android-27 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
+
 script:
-# 生成 APK
-- ./gradlew assembleRelease
+- echo "Travis 分支 is $TRAVIS_BRANCH"
+- echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+  # 生成 APK
+  #- ./gradlew assembleRelease
+  ./gradlew connectedAndroidTest
 
 ## 部署
 #deploy:

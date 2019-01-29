@@ -25,7 +25,6 @@ before_script:
 
 script:
 - echo "Travis 分支 is $TRAVIS_BRANCH"
-- echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
   # 生成 APK
   #- ./gradlew assembleRelease
   ./gradlew connectedAndroidTest

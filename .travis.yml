@@ -23,7 +23,10 @@ before_script:
 - android-wait-for-emulator
 - adb shell input keyevent 82 &
 
-script: ./gradlew connectedAndroidTest
+script:
+- echo "Travis 分支 is $TRAVIS_BRANCH"
+- ./gradlew connectedAndroidTest
+#- ./gradlew assembleRelease
 
 ## 部署
 #deploy:

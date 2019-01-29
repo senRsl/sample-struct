@@ -2,6 +2,7 @@
 
 [ ![Download](https://api.bintray.com/packages/senrsl/arch/core/images/download.svg) ](https://bintray.com/senrsl/arch/core/_latestVersion)
 [ ![Download](https://api.bintray.com/packages/senrsl/arch/bridge/images/download.svg) ](https://bintray.com/senrsl/arch/bridge/_latestVersion)
+[![Build Status](https://www.travis-ci.org/senRsl/sample-struct.svg?branch=master)](https://www.travis-ci.org/senRsl/sample-struct)
 
 ## CodeStyle
 

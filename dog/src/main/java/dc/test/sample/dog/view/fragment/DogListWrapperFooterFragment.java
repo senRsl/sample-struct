@@ -118,6 +118,7 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
         wrapper.setOnloadMoreListener(this, rvList);
 
         rvList.setAdapter(wrapper);
+//        rvList.addOnScrollListener(listenerScroll);
 
 
         //3，业务初始化
@@ -244,6 +245,52 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
             presenter.toDetailForResult(position, position);//position代替id演示功能
         }
     };
+
+
+//    private RecyclerView.OnScrollListener listenerScroll = new RecyclerView.OnScrollListener() {
+//        @Override
+//        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//            super.onScrollStateChanged(recyclerView, newState);
+//            Logger.w(newState, isRefreshing());
+////            if (!isRefreshing()) {
+//            try {
+//                if (layoutManager instanceof LinearLayoutManager) {
+//                    LinearLayoutManager linearLayoutManager = ((LinearLayoutManager) layoutManager);
+//                    Logger.w(linearLayoutManager.findLastVisibleItemPosition(), adapter.getItemCount());
+//                    if (linearLayoutManager.findLastVisibleItemPosition() == adapter.getItemCount() - 1) {
+//                        loadData();
+//                        Logger.w("loadData");
+//                    }
+//                } else if (layoutManager instanceof StaggeredGridLayoutManager) {
+//                    StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
+//                    //获取最后一个完全显示的ItemPosition
+//                    int[] lastVisiblePositions = staggeredGridLayoutManager.findLastVisibleItemPositions(new int[staggeredGridLayoutManager.getSpanCount()]);
+//                    int lastVisiblePos = getMaxElem(lastVisiblePositions);
+//                    int totalItemCount = staggeredGridLayoutManager.getItemCount();
+//
+//                    // 判断是否滚动到底部
+//                    if (lastVisiblePos == (totalItemCount - 1)) {
+//                        loadData();
+//                        Logger.w("loadData");
+//                    }
+//                }
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+////            }
+//        }
+//    };
+
+    private int getMaxElem(int[] arr) {
+        int size = arr.length;
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i < size; i++) {
+            if (arr[i] > maxVal)
+                maxVal = arr[i];
+        }
+        return maxVal;
+    }
 
 
     //11,业务层Callback，统一为cbXxx，其中vp通信Xxx为Local(default)或LocalXxx

@@ -48,7 +48,7 @@ public class DogListViewHolder extends PurposeRecyclerAdapter.PurposeViewHolder<
         this.bean = bean;
         this.adapter = adapter;
         this.position = position;
-        Logger.w(bean, adapter, tvName);
+        //Logger.w(bean, adapter, tvName);
 
         tvName.setText(bean.getNameChinese());
         tvFrom.setText(bean.getFrom());

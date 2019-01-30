@@ -40,32 +40,38 @@ android:        # 配置信息
   - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMULATOR_LEVEL
 
 licenses:
-- android-sdk-preview-license-.+
-- android-sdk-license-.+
-- google-gdk-license-.+
+  - android-sdk-preview-license-.+
+  - android-sdk-license-.+
+  - google-gdk-license-.+
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
-  - "$HOME/.android/build-cache"
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
 
 before_install:
-- yes | sdkmanager "platforms;android-27"
+  - yes | sdkmanager "platforms;android-27"
 
 before_script:
 # Create and start emulator 已废弃
   - android list targets
-  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-window &
-  - android-wait-for-emulator
+#  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+#  - emulator -avd test -no-window &
+#  - android-wait-for-emulator
 
 script:
-- echo "Travis 分支 is $TRAVIS_BRANCH"
-- ./gradlew build connectedCheck
+  - echo "Travis 分支 is $TRAVIS_BRANCH"
+  - ./gradlew test
 #- ./gradlew assembleRelease
 
-after_failure: "cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml"
+after_failure:
+  - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html
+  - cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml
 
 ## 部署
 #deploy:

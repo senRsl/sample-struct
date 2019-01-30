@@ -21,6 +21,7 @@ env:
   - ANDROID_ABI=armeabi-v7a
   - ANDROID_TAG=google_apis
   - QEMU_AUDIO_DRV=none
+  - EMULATOR_NAME=sdk19
 
 android:        # 配置信息
   components:
@@ -40,13 +41,13 @@ android:        # 配置信息
   - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMULATOR_LEVEL
 
 licenses:
-  - android-sdk-preview-license-.+
-  - android-sdk-license-.+
-  - google-gdk-license-.+
+- android-sdk-preview-license-.+
+- android-sdk-license-.+
+- google-gdk-license-.+
 
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 
 cache:
   directories:
@@ -55,27 +56,27 @@ cache:
   - $HOME/.android/build-cache
 
 before_install:
-  - yes | sdkmanager "platforms;android-27"
+- yes | sdkmanager "platforms;android-27"
 
 before_script:
-  - android list targets
-  # Create and start emulator
-  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-  - emulator -avd test -no-window &
-  - android-wait-for-emulator
-  - adb shell input keyevent 82 & #82是解锁
-  - adb devices
+- android list targets
+# Create and start emulator
+- echo no | android create avd --force -n $EMULATOR_NAME -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+- emulator -avd $EMULATOR_NAME -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 & #82是解锁
+- adb devices
 
 script:
-  - echo "Travis 分支 is $TRAVIS_BRANCH"
+- echo "Travis 分支 is $TRAVIS_BRANCH"
 #  - ./gradlew test                     # unit
 #  - ./gradlew app:connectedAndroidTest # espresso
 #  - ./gradlew assembleRelease    #这个是打release包
-  - ./gradlew installDebug    #这个是打debug包安装
+- ./gradlew installDebug    #这个是打debug包安装
 
 after_failure:
-  - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html
-  - cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml
+- cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html
+- cat $TRAVIS_BUILD_DIR/app/build/outputs/lint-results-debug.xml
 
 ## 部署
 #deploy:

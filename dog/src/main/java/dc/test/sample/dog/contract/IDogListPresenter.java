@@ -31,11 +31,14 @@ public interface IDogListPresenter<V extends IBaseView> extends IBasePresenter<V
 
     /**
      * 请求刷新数据
+     * 应为 refreshData()
      */
     void refreshDataList();
 
     /**
      * 刷新数据完成，回调返回
+     *
+     * 应为private,不对外暴露
      *
      * @param list 新数据集合
      */

@@ -20,15 +20,15 @@ android:        # 配置信息
 
 before_script:
 # Create and start emulator
-#- echo no | android create avd --force -n test -t android-27 --abi google_apis/armeabi-v7a
-#- emulator -avd test -no-skin -no-audio -no-window &
-#- android-wait-for-emulator
-#- adb shell input keyevent 82 &
+- echo no | android create avd --force -n test -t android-19 --abi google_apis/armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
 
 script:
 - echo "Travis 分支 is $TRAVIS_BRANCH"
-#- ./gradlew connectedAndroidTest
-- ./gradlew assembleRelease
+- ./gradlew connectedAndroidTest
+#- ./gradlew assembleRelease
 
 ## 部署
 #deploy:

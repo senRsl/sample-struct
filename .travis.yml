@@ -60,14 +60,17 @@ before_install:
 before_script:
 # Create and start emulator 已废弃
   - android list targets
+  - adb devices
 #  - echo no | android create avd --force -n test -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
 #  - emulator -avd test -no-window &
 #  - android-wait-for-emulator
 
 script:
   - echo "Travis 分支 is $TRAVIS_BRANCH"
-  - ./gradlew test
-#- ./gradlew assembleRelease
+#  - ./gradlew test                     # unit
+#  - ./gradlew app:connectedAndroidTest # espresso
+#  - ./gradlew assembleRelease    #这个是打release包
+  - ./gradlew installDebug    #这个是打debug包安装
 
 after_failure:
   - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html

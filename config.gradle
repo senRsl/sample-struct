@@ -92,8 +92,8 @@ ext {
 
     //Version
     supportLibrary = "27.1.1"
-    coreVersion = "1.0.3"
-    bridgeVersion = "1.0.7"
+    coreVersion = "1.0.4"
+    bridgeVersion = "1.0.8"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -127,7 +127,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -138,7 +138,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

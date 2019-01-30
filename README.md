@@ -53,20 +53,20 @@ V2模块结构为
 
 V1版本文件命名遵循原命名方式  
 如  
-   - [activity_sample.xml](sample/src/main/res/layout/activity_sample.xml)
+   - [activity_sample.xml](dog/src/main/res/layout/activity_sample.xml)
 
 V2版本文件命名遵循 【文件类型(_功能类型)_模块名】方式
 
 如  
-  - [activity_add_dog.xml](sample/src/main/res/layout/activity_add_dog.xml)  
-  - [activity_list_dog.xml](sample/src/main/res/layout/activity_list_dog.xml)
-  - [activity_detail_dog.xml](sample/src/main/res/layout/activity_detail_dog.xml)
-  - [fragment_list_dog.xml](sample/src/main/res/layout/fragment_list_dog.xml)
+  - [activity_add_dog.xml](dog/src/main/res/layout/activity_add_dog.xml)  
+  - [activity_list_dog.xml](dog/src/main/res/layout/activity_list_dog.xml)
+  - [activity_detail_dog.xml](dog/src/main/res/layout/activity_detail_dog.xml)
+  - [fragment_list_dog.xml](dog/src/main/res/layout/fragment_list_dog.xml)
 
 ## 布局控件命名
 
 布局控件采用 【前缀缩写_功能描述(_功能字段)】方式  
-如 [layout_rules.xml](sample/src/main/res/layout/layout_rules.xml) 所示
+如 [layout_rules.xml](dog/src/main/res/layout/layout_rules.xml) 所示
 
   - layout_rules
   - tv_name
@@ -95,8 +95,8 @@ V2版本文件命名遵循 【文件类型(_功能类型)_模块名】方式
 对于引用资源，如非特殊情况，应统一命名存放  
 
 ### 存放   
-  - 字符资源 位于 [string.xml](sample/src/main/res/values/strings.xml)
-  - 字符数组 位于 [arrays.xml](sample/src/main/res/values/arrays.xml)
+  - 字符资源 位于 [string.xml](dog/src/main/res/values/strings.xml)
+  - 字符数组 位于 [arrays.xml](dog/src/main/res/values/arrays.xml)
   - 图片资源 位于 [drawable-分辨率](app/src/main/res/drawable-hdpi)
 
 ### 命名  
@@ -115,7 +115,7 @@ V2版本文件命名遵循 【文件类型(_功能类型)_模块名】方式
 ```
 
 模块图片资源示例 
-[dog_bg.png](sample/src/main/res/drawable-hdpi/dog_bg.png)
+[dog_bg.png](dog/src/main/res/drawable-hdpi/dog_bg.png)
 
 ## 变量命名基准
 
@@ -194,7 +194,7 @@ boolean onViewLongClickedItem();
 
 如无特殊要求，所有Project Activity应继承Base(Project)Activity  
 如
-  - sample项目中activity继承 [BaseSampleActivity](sample/src/main/java/dc/test/sample/bridge/BaseSampleActivity.java),
+  - sample项目中activity继承 [BaseSampleActivity](dog/src/main/java/dc/test/sample/bridge/BaseSampleActivity.java),
   - candy项目中activity继承 [BaseCandyActivity](#)
 
 此类定义该Project的本地化通用实现
@@ -202,7 +202,7 @@ boolean onViewLongClickedItem();
 方法调用图  
 //TODO
 
-调用示例 [DogDetailActivity](sample/src/main/java/dc/test/sample/dog/view/activity/DogDetailActivity.java)
+调用示例 [DogDetailActivity](dog/src/main/java/dc/test/sample/dog/view/activity/DogDetailActivity.java)
 
 主要方法
 ```java
@@ -243,7 +243,7 @@ void refreshData();             //同Activity方法
 
 当布局需要展示列表时，可根据实际情况继承此类
 
-调用示例 [DogListFragment](sample/src/main/java/dc/test/sample/dog/view/fragment/DogListFragment.java)
+调用示例 [DogListFragment](dog/src/main/java/dc/test/sample/dog/view/fragment/DogListFragment.java)
 
 
 #### 基于 BaseListWrapperFragment
@@ -255,9 +255,9 @@ void refreshData();             //同Activity方法
 ### PurposeRecyclerAdapter 通用的RecyclerAdapter
 
 [PurposeRecyclerAdapter](bridge/src/main/java/dc/test/bridge/adapter/PurposeRecyclerAdapter.java) 为 通用Adapter，
-示例如 [DogListViewHolder](sample/src/main/java/dc/test/sample/dog/view/adapter/DogListViewHolder.java)
+示例如 [DogListViewHolder](dog/src/main/java/dc/test/sample/dog/view/adapter/DogListViewHolder.java)
 
-对于无法使用通用adapter适配的列表，可参考 [DogListAdapter](sample/src/main/java/dc/test/sample/dog/view/adapter/DogListAdapter.java)
+对于无法使用通用adapter适配的列表，可参考 [DogListAdapter](dog/src/main/java/dc/test/sample/dog/view/adapter/DogListAdapter.java)
 
 
 ## V层唤起
@@ -266,12 +266,12 @@ void refreshData();             //同Activity方法
 
 当使用startActivity()方式启动Activity时，应采用starter方式
 
-调用示例 [DogDetailActivity](sample/src/main/java/dc/test/sample/dog/view/activity/DogDetailActivity.java)
+调用示例 [DogDetailActivity](dog/src/main/java/dc/test/sample/dog/view/activity/DogDetailActivity.java)
 
 ### 调起 Fragment
 
 V1模式调起示例 [FrameViewGenerator.java](app/src/main/java/dc/test/candy/fragment/FrameViewGenerator.java)  
-V2模式调起示例 [DogViewGenerator](sample/src/main/java/dc/test/sample/dog/view/DogViewGenerator.java)
+V2模式调起示例 [DogViewGenerator](dog/src/main/java/dc/test/sample/dog/view/DogViewGenerator.java)
 
 
 ## 模块列表

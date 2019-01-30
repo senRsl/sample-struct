@@ -1,1 +1,1 @@
-include ':app','dog',':struct:bridge',':struct:base'
+include ':app',':dog',':struct:bridge',':struct:base'

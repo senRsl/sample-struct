@@ -74,10 +74,10 @@ ext {
     tinker = buildWithTinker() || isRelease()
     isRelease = isRelease()
     android = [
-            compileSdkVersion: 27,
-            buildToolsVersion: "27.0.3",
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
             minSdkVersion    : 19,
-            targetSdkVersion : 27,
+            targetSdkVersion : 28,
             applicationId    : "dc.test.sample",
             versionCode      : getCount(true),
             versionName      : vn,
@@ -91,7 +91,7 @@ ext {
     ]
 
     //Version
-    supportLibrary = "27.1.1"
+    supportLibrary = "28.0.0"
     coreVersion = "1.0.4"
     bridgeVersion = "1.0.8"
 

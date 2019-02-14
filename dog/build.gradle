@@ -50,6 +50,9 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"
 
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation "com.jakewharton:butterknife:$ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$ext.butterknifeVersion"
+
+    implementation "com.google.dagger:dagger:$ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$ext.daggerVersion"
 }

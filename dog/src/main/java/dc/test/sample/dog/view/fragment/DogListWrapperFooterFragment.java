@@ -1,5 +1,7 @@
 package dc.test.sample.dog.view.fragment;
 
+import javax.inject.Inject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import dc.test.sample.Constants;
 import dc.test.sample.R;
 import dc.test.sample.dog.contract.IDogListPresenter;
 import dc.test.sample.dog.contract.IDogListView;
-import dc.test.sample.dog.presenter.DogListPresenterImpl;
+import dc.test.sample.dog.ioc.component.DaggerIDogComponent;
 import dc.test.sample.dog.view.adapter.DogListViewHolder;
 import dc.test.sample.domain.DogBean;
 
@@ -61,7 +62,8 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
     //3, 业务 相关变量
     private Unbinder unbinder;
 
-    private IDogListPresenter presenter;
+    @Inject
+    IDogListPresenter presenter;
 
 
     //4, 上层通信
@@ -73,9 +75,6 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new DogListPresenterImpl();
-        presenter.attachView(getActivity(), this);
-        Logger.w(getClass().getSimpleName(), presenter);
     }
 
     @Nullable
@@ -122,9 +121,21 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
 
 
         //3，业务初始化
-        presenter.initData();
+
 
         //4,其他第三方操作
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        //presenter = new DogListPresenterImpl();
+        DaggerIDogComponent.builder().build().inject(this);
+
+        presenter.attachView(activity, this);
+        Logger.w(getClass().getSimpleName(), presenter, presenter.hashCode());
+
+        presenter.initData();
     }
 
     @Override
@@ -132,6 +143,7 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
         super.refreshDataOnCreated();
         presenter.refreshDataList();
     }
+
 
     @Override
     public void onResume() {

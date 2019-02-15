@@ -1,4 +1,4 @@
-package dc.test.sample.dog.ioc.module;
+package dc.test.sample.dog.di.module;
 
 import dagger.Module;
 import dagger.Provides;

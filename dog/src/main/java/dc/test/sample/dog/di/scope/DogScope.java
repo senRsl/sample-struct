@@ -1,4 +1,4 @@
-package dc.test.sample.dog.ioc.scope;
+package dc.test.sample.dog.di.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

@@ -27,7 +27,7 @@ import dc.test.sample.Constants;
 import dc.test.sample.R;
 import dc.test.sample.dog.contract.IDogListPresenter;
 import dc.test.sample.dog.contract.IDogListView;
-import dc.test.sample.dog.ioc.component.DaggerIDogComponent;
+import dc.test.sample.dog.di.component.DaggerIDogComponent;
 import dc.test.sample.dog.view.adapter.DogListViewHolder;
 import dc.test.sample.domain.DogBean;
 

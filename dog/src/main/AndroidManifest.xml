@@ -27,6 +27,8 @@
         <activity android:name=".dog.view.activity.DogDetailActivity" />
         <activity android:name=".dog.view.activity.DogListActivity" />
 
+        <activity android:name=".DisplayActivity" />
+
     </application>
 
 </manifest>

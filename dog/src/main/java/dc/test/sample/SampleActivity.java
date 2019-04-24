@@ -46,7 +46,7 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -58,6 +58,7 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_add_dog:
                 break;
             default:
+                DisplayActivity.start(this);
                 break;
         }
     }

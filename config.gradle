@@ -76,7 +76,7 @@ ext {
     android = [
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.3",
-            minSdkVersion    : 19,
+            minSdkVersion    : 14,
             targetSdkVersion : 28,
             applicationId    : "dc.test.sample",
             versionCode      : getCount(true),
@@ -90,10 +90,11 @@ ext {
             PKG_RELEASE: "dc.test.sample"
     ]
 
-    //Version
+    //Version 用于从库中拉取
     supportLibrary = "28.0.0"
     coreVersion = "1.0.6"
     bridgeVersion = "1.0.11"
+    adapterVersion = "1.0.0"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -124,10 +125,12 @@ ext {
     keys = [
     ]
 
+    //以下配置用于发布
+    st_target = []
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -138,7 +141,18 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.11",
+            "version": "1.0.12",
+            "group"  : "dc.android",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
+    struct_adapter = [
+            "name"   : "adapter",
+            "desc"   : "adapter for bridge",
+            "version": "1.0.0",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

@@ -6,6 +6,7 @@
 
     <string name="invalid_data">数据无效</string>
     <string name="empty"></string>
+    <string name="crash">Crash</string>
 
     <string name="dog_title_list">Dog List</string>
     <string name="dog_title_list_wrapper">Dog List Wrapper</string>

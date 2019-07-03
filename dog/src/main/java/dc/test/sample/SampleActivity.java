@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import butterknife.BindArray;
 import butterknife.OnClick;
+import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
+import dc.android.common.handler.CrashHandler;
 import dc.android.common.utils.KeepInstance;
 import dc.common.Logger;
 import dc.test.sample.bridge.BaseSampleActivity;
@@ -46,7 +48,7 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -56,6 +58,12 @@ public class SampleActivity extends BaseSampleActivity {
                 DogListActivity.start(this, Constants.LIST_TYPE_SWIPE_WRAPPER);
                 break;
             case R.id.btn_add_dog:
+                break;
+            case R.id.btn_crash:
+                //VsfApplication中，先!isDebug，再初始化
+                CrashHandler.getInstance().init(getApplicationContext());
+                BridgeContext.CLS_WELCOME = SampleActivity.class.getCanonicalName();
+                int i = 1 / 0;
                 break;
             default:
                 DisplayActivity.start(this);

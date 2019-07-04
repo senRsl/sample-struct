@@ -95,6 +95,7 @@ ext {
     coreVersion = "1.0.6"
     bridgeVersion = "1.0.11"
     adapterVersion = "1.0.0"
+    statVersion = "1.0.0"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"

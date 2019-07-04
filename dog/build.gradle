@@ -48,6 +48,8 @@ dependencies {
 
 //    implementation "dc.android:core:$ext.coreVersion"
 //    implementation "dc.android:bridge:$ext.bridgeVersion"
+//    implementation "dc.android:bridge:$ext.adapterVersion"
+//    implementation "dc.android:bridge:$ext.statVersion"
 
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"

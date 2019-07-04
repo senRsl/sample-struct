@@ -61,7 +61,7 @@ public class SampleActivity extends BaseSampleActivity {
                 break;
             case R.id.btn_crash:
                 //VsfApplication中，先!isDebug，再初始化
-                CrashHandler.getInstance().init(getApplicationContext());
+                CrashHandler.getInstance().init(getApplicationContext(), cbCrash);
                 BridgeContext.CLS_WELCOME = SampleActivity.class.getCanonicalName();
                 int i = 1 / 0;
                 break;
@@ -83,5 +83,8 @@ public class SampleActivity extends BaseSampleActivity {
             Constants.listDogs.add(bean);
         }
     }
+
+
+    private CrashHandler.Callback cbCrash = (ex, info) -> Logger.w(getClass().getName(), ex, info);
 
 }

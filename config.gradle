@@ -134,7 +134,7 @@ ext {
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
-            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "siteUrl": "https://senrsl.blogspot.com/",
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
@@ -145,7 +145,7 @@ ext {
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
-            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "siteUrl": "https://senrsl.blogspot.com/",
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
@@ -153,10 +153,10 @@ ext {
             "name"   : "adapter",
             "desc"   : "adapter for bridge",
             "version": "1.0.0",
-            "group"  : "dc.android",
+            "group"  : "dc.android.bridge",
             "repo"   : "arch",
             "org"    : "senrsl",
-            "siteUrl": "https://github.com/senRsl/sample-struct",
+            "siteUrl": "https://senrsl.blogspot.com/",
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 

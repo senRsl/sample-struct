@@ -41,15 +41,15 @@ android {
 apply from: "../dependencies.gradle"
 dependencies {
     implementation 'dc.common:logger:latest.integration'
-    implementation project(':struct:base')
-    implementation project(':struct:bridge')
-    implementation project(':struct:adapter')
-    implementation project(':struct:stat')
+//    implementation project(':struct:base')
+//    implementation project(':struct:bridge')
+//    implementation project(':struct:adapter')
+//    implementation project(':struct:stat')
 
-//    implementation "dc.android:core:$ext.coreVersion"
-//    implementation "dc.android:bridge:$ext.bridgeVersion"
-//    implementation "dc.android:bridge:$ext.adapterVersion"
-//    implementation "dc.android:bridge:$ext.statVersion"
+    implementation "dc.android:core:$ext.coreVersion"
+    implementation "dc.android:bridge:$ext.bridgeVersion"
+    implementation "dc.android.bridge:adapter:$ext.adapterVersion"
+    implementation "dc.android.libs:stat:$ext.statVersion"
 
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"

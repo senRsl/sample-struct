@@ -9,6 +9,8 @@ import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.utils.KeepInstance;
+import dc.android.libs.stat.HooksStatUtils;
+import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
 import dc.test.sample.bridge.BaseSampleActivity;
 import dc.test.sample.dog.view.activity.DogListActivity;
@@ -48,7 +50,7 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -61,9 +63,16 @@ public class SampleActivity extends BaseSampleActivity {
                 break;
             case R.id.btn_crash:
                 //VsfApplication中，先!isDebug，再初始化
+                SlackInstance.getInstance().init(getApplication());
                 CrashHandler.getInstance().init(getApplicationContext(), cbCrash);
                 BridgeContext.CLS_WELCOME = SampleActivity.class.getCanonicalName();
+//                SlackInstance.getInstance().send(getClass().getSimpleName());
                 int i = 1 / 0;
+                break;
+            case R.id.btn_hooks:
+                BridgeContext.isDebug = false;
+                BridgeContext.isReport = true;
+                HooksStatUtils.hooks(getApplication());
                 break;
             default:
                 DisplayActivity.start(this);
@@ -85,6 +94,6 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    private CrashHandler.Callback cbCrash = (ex, info) -> Logger.w(getClass().getName(), ex, info);
+    private CrashHandler.Callback cbCrash = (ex, info) -> SlackInstance.getInstance().send(info);
 
 }

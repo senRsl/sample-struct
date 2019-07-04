@@ -141,7 +141,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -154,6 +154,17 @@ ext {
             "desc"   : "adapter for bridge",
             "version": "1.0.0",
             "group"  : "dc.android.bridge",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
+    struct_stat = [
+            "name"   : "stat",
+            "desc"   : "stat from libs",
+            "version": "1.0.0",
+            "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",
             "siteUrl": "https://senrsl.blogspot.com/",

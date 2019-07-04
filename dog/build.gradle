@@ -44,6 +44,7 @@ dependencies {
     implementation project(':struct:base')
     implementation project(':struct:bridge')
     implementation project(':struct:adapter')
+    implementation project(':struct:stat')
 
 //    implementation "dc.android:core:$ext.coreVersion"
 //    implementation "dc.android:bridge:$ext.bridgeVersion"

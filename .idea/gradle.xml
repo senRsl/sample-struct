@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/struct/adapter" />
             <option value="$PROJECT_DIR$/struct/base" />
             <option value="$PROJECT_DIR$/struct/bridge" />
+            <option value="$PROJECT_DIR$/struct/stat" />
           </set>
         </option>
       </GradleProjectSettings>

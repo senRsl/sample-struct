@@ -44,6 +44,12 @@
             android:layout_height="wrap_content"
             android:text="@string/crash" />
 
+        <Button
+            android:id="@+id/btn_hooks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hooks" />
+
     </LinearLayout>
 
 </LinearLayout>

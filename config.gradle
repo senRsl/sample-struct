@@ -164,7 +164,7 @@ ext {
     struct_stat = [
             "name"   : "stat",
             "desc"   : "stat from libs",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

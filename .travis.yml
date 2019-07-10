@@ -61,11 +61,11 @@ before_install:
 before_script:
 - android list targets
 # Create and start emulator
-- echo no | android create avd --force -n $EMULATOR_NAME -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
-- emulator -avd $EMULATOR_NAME -no-window &
+#- echo no | android create avd --force -n $EMULATOR_NAME -t "android-"$ANDROID_EMULATOR_LEVEL --abi $ANDROID_ABI --tag $ANDROID_TAG
+#- emulator -avd $EMULATOR_NAME -no-window &
 #- android-wait-for-emulator
 #- adb shell input keyevent 82 & #82是解锁
-- adb devices
+#- adb devices
 
 script:
 - echo "Travis 分支 is $TRAVIS_BRANCH"
@@ -73,6 +73,8 @@ script:
 #  - ./gradlew app:connectedAndroidTest # espresso
 #  - ./gradlew assembleRelease    #这个是打release包
 #  - ./gradlew installDebug    #这个是打debug包安装
+- ./gradlew app:assembleDebug
+- ./gradlew dog:assembleDebug
 
 after_failure:
 - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html

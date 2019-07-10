@@ -5,8 +5,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.EditText;
+import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dc.android.base.activity.BridgeActivity;
-import dc.android.base.wrapper.ImmersiveBarWrapper;
+import dc.android.common.BridgeContext;
+import dc.android.common.utils.AutoMarginUtils;
 
 /**
  * @author senrsl
@@ -16,6 +21,10 @@ import dc.android.base.wrapper.ImmersiveBarWrapper;
  */
 public class DisplayActivity extends BridgeActivity {
 
+    @BindView(R.id.tv_name_cn)
+    TextView tvNameCn;
+    @BindView(R.id.et_from)
+    EditText etFrom;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, DisplayActivity.class);
@@ -24,13 +33,22 @@ public class DisplayActivity extends BridgeActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        ImmersiveBarWrapper barWrapper = new ImmersiveBarWrapper(this);
-
-        barWrapper.setShowStatus(true);
-//        barWrapper.setShowNav(true);
-//        barWrapper.setShowFull(true);
         super.onCreate(savedInstanceState);
-        barWrapper.onCreate();
-        barWrapper.setImmersiveStatusBar(true, Color.WHITE);
+    }
+
+
+    @Override
+    protected void initLayout() {
+        super.initLayout();
+        AutoMarginUtils.setSize(getApplication(), true, BridgeContext.DESIGN_WIDTH, BridgeContext.DESIGN_HEIGHT);
+//        setLayout(true, BridgeOpcode.DEFAULT, true, Color.WHITE);
+        setLayout(true, R.layout.activity_detail_dog, true, Color.WHITE);
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        tvNameCn.setText(getClass().getSimpleName());
     }
 }

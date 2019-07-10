@@ -57,4 +57,10 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:layout_width="375px"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:src="@drawable/dog_bg" />
+
 </LinearLayout>

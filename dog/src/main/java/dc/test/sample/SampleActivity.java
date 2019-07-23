@@ -51,6 +51,7 @@ public class SampleActivity extends BaseSampleActivity {
     @Override
     protected void initData() {
         generateFromXml();
+        initCrash();
     }
 
 
@@ -66,22 +67,6 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_add_dog:
                 break;
             case R.id.btn_crash:
-                String env = null;
-                JSONObject jo = new JSONObject();
-                try {
-                    jo.put("className", getClass().getName());
-                    jo.put("currentTime", System.currentTimeMillis());
-                    env = jo.toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                SharePreferencesUtils sp = new SharePreferencesUtils(this);
-                sp.saveSharedPreferencesValue(BridgeContext.KEY_ENV, env);
-                //VsfApplication中，先!isDebug，再初始化
-                SlackInstance.getInstance().init(getApplication());
-                CrashHandler.getInstance().init(getApplicationContext(), cbCrash);
-                BridgeContext.CLS_WELCOME = SampleActivity.class.getCanonicalName();
-//                SlackInstance.getInstance().send(getClass().getSimpleName());
                 int i = 1 / 0;
                 break;
             case R.id.btn_hooks:
@@ -95,6 +80,24 @@ public class SampleActivity extends BaseSampleActivity {
         }
     }
 
+    private void initCrash() {
+        String env = null;
+        JSONObject jo = new JSONObject();
+        try {
+            jo.put("className", getClass().getName());
+            jo.put("currentTime", System.currentTimeMillis());
+            env = jo.toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        SharePreferencesUtils sp = new SharePreferencesUtils(this);
+        sp.saveSharedPreferencesValue(BridgeContext.KEY_ENV, env);
+        //VsfApplication中，先!isDebug，再初始化
+        SlackInstance.getInstance().init(getApplication());
+        CrashHandler.getInstance().init(getApplicationContext(), cbCrash);
+        BridgeContext.CLS_WELCOME = SampleActivity.class.getCanonicalName();
+//        SlackInstance.getInstance().send(getClass().getSimpleName());
+    }
 
     private void generateFromXml() {
         Logger.w(dogs);

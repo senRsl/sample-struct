@@ -1,5 +1,8 @@
 package dc.test.sample;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +12,7 @@ import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.utils.KeepInstance;
+import dc.android.common.utils.SharePreferencesUtils;
 import dc.android.libs.stat.HooksStatUtils;
 import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
@@ -62,6 +66,17 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_add_dog:
                 break;
             case R.id.btn_crash:
+                String env = null;
+                JSONObject jo = new JSONObject();
+                try {
+                    jo.put("className", getClass().getName());
+                    jo.put("currentTime", System.currentTimeMillis());
+                    env = jo.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                SharePreferencesUtils sp = new SharePreferencesUtils(this);
+                sp.saveSharedPreferencesValue(BridgeContext.KEY_ENV, env);
                 //VsfApplication中，先!isDebug，再初始化
                 SlackInstance.getInstance().init(getApplication());
                 CrashHandler.getInstance().init(getApplicationContext(), cbCrash);

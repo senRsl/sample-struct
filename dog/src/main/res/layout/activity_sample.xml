@@ -50,6 +50,12 @@
             android:layout_height="wrap_content"
             android:text="@string/hooks" />
 
+        <Button
+            android:id="@+id/btn_tasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tasks" />
+
     </LinearLayout>
 
 </LinearLayout>

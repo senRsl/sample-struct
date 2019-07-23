@@ -3,6 +3,7 @@ package dc.test.sample;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.utils.KeepInstance;
 import dc.android.common.utils.SharePreferencesUtils;
+import dc.android.common.utils.TaskUtils;
 import dc.android.libs.stat.HooksStatUtils;
 import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
@@ -55,7 +57,7 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks, R.id.btn_tasks})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -73,6 +75,10 @@ public class SampleActivity extends BaseSampleActivity {
                 BridgeContext.isDebug = false;
                 BridgeContext.isReport = true;
                 HooksStatUtils.hooks(getApplication());
+                break;
+            case R.id.btn_tasks:
+                BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();
+                new TaskUtils().startLogin(this, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP, R.string.app_name);
                 break;
             default:
                 DisplayActivity.start(this);

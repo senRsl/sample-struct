@@ -118,6 +118,6 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    private CrashHandler.Callback cbCrash = (ex, info) -> SlackInstance.getInstance().send(info);
+    private CrashHandler.Callback cbCrash = (ex, info) -> SlackInstance.getInstance().send(getClass().getName() + BridgeContext.TAB + info);
 
 }

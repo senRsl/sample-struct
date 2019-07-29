@@ -1,5 +1,6 @@
 # .travis.yml 文件
 
+dist: trusty
 # 声明构建语言环境
 language: android
 jdk: oraclejdk8 #lamda
@@ -73,8 +74,9 @@ script:
 #  - ./gradlew app:connectedAndroidTest # espresso
 #  - ./gradlew assembleRelease    #这个是打release包
 #  - ./gradlew installDebug    #这个是打debug包安装
-- ./gradlew app:assembleDebug
-- ./gradlew dog:assembleDebug
+#- ./gradlew app:assembleDebug
+#- ./gradlew dog:assembleDebug
+- ./gradlew assembleDebug
 
 after_failure:
 - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html

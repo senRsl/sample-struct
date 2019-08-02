@@ -96,6 +96,7 @@ ext {
     bridgeVersion = "1.0.15"
     adapterVersion = "1.0.0"
     statVersion = "1.0.3"
+    shellVersion = "1.0.0"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -161,6 +162,17 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    struct_shell = [
+            "name"   : "shell",
+            "desc"   : "shell for struct",
+            "version": "1.0.0",
+            "group"  : "dc.android",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
     struct_stat = [
             "name"   : "stat",
             "desc"   : "stat from libs",
@@ -171,5 +183,6 @@ ext {
             "siteUrl": "https://senrsl.blogspot.com/",
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
+
 
 }

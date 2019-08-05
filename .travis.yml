@@ -76,7 +76,7 @@ script:
 #  - ./gradlew installDebug    #这个是打debug包安装
 #- ./gradlew app:assembleDebug
 #- ./gradlew dog:assembleDebug
-- ./gradlew assembleDebug
+- ./gradlew assembleDebug --refresh-dependencies
 
 after_failure:
 - cat $TRAVIS_BUILD_DIR/dog/build/reports/androidTests/connected/index.html

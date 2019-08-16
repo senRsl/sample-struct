@@ -97,6 +97,7 @@ ext {
     adapterVersion = "1.0.0"
     statVersion = "1.0.3"
     shellVersion = "1.0.0"
+    swipeVersion = "1.0.0"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -177,6 +178,17 @@ ext {
             "name"   : "stat",
             "desc"   : "stat from libs",
             "version": "1.0.3",
+            "group"  : "dc.android.libs",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
+    struct_swipe = [
+            "name"   : "swipe",
+            "desc"   : "swipe for libs",
+            "version": "1.0.0",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

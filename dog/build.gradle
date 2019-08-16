@@ -46,12 +46,14 @@ dependencies {
 //    implementation project(':struct:adapter')
 //    implementation project(':struct:stat')
 //    implementation project(':struct:shell')
+//    implementation project(':struct:swipe')
 
     implementation "dc.android:core:$ext.coreVersion"
     implementation "dc.android:bridge:$ext.bridgeVersion"
     implementation "dc.android.bridge:adapter:$ext.adapterVersion"
     implementation "dc.android.libs:stat:$ext.statVersion"
     implementation "dc.android:shell:$ext.shellVersion"
+//    implementation "dc.android.libs:swipe:$ext.swipeVersion"
 
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"

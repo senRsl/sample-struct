@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/struct/bridge" />
             <option value="$PROJECT_DIR$/struct/shell" />
             <option value="$PROJECT_DIR$/struct/stat" />
+            <option value="$PROJECT_DIR$/struct/swipe" />
           </set>
         </option>
       </GradleProjectSettings>

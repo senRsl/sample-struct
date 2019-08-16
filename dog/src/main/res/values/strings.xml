@@ -12,6 +12,7 @@
     <string name="hooks">Hooks</string>
     <string name="tasks">Tasks</string>
     <string name="swipe">Swipe</string>
+    <string name="permission">Permission</string>
 
     <string name="dog_title_list">Dog List</string>
     <string name="dog_title_list_wrapper">Dog List Wrapper</string>

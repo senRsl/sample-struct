@@ -57,7 +57,7 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe,R.id.btn_permission})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -81,6 +81,9 @@ public class SampleActivity extends BaseSampleActivity {
                 new TaskUtils().startLogin(this, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP, R.string.app_name);
                 break;
             case R.id.btn_swipe:
+//                TestActivity.start(this);
+                break;
+            case R.id.btn_permission:
 //                TestActivity.start(this);
                 break;
             default:

@@ -54,8 +54,8 @@ dependencies {
     implementation "dc.android.bridge:adapter:$ext.adapterVersion"
     implementation "dc.android.libs:stat:$ext.statVersion"
     implementation "dc.android:shell:$ext.shellVersion"
-//    implementation "dc.android.libs:swipe:$ext.swipeVersion"
-//    implementation "dc.android.libs:permission:$ext.permissionVersion"
+    implementation "dc.android.libs:swipe:$ext.swipeVersion"
+    implementation "dc.android.libs:permission:$ext.permissionVersion"
 
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"

@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnTextChanged;
 import dc.android.common.BridgeOpcode;
+import dc.android.views.LoadingDialog;
 import dc.common.Logger;
 import dc.test.sample.Constants;
 import dc.test.sample.R;
@@ -40,6 +42,8 @@ public class DogDetailActivity extends BaseSampleActivity implements IDogDetailV
 
     private IDogDetailPresenter presenter;
 
+    private LoadingDialog loadingDialog;
+
     //4, 上层通信
 
     public static void start(Context context, int id) {
@@ -54,6 +58,7 @@ public class DogDetailActivity extends BaseSampleActivity implements IDogDetailV
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setShowStatus(true);
+        setShowNav(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_dog);
         setImmersiveStatusBar(true, Color.WHITE);
@@ -71,12 +76,19 @@ public class DogDetailActivity extends BaseSampleActivity implements IDogDetailV
     @Override
     protected void initData() {
         super.initData();
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.setCancelable(false);
+        loadingDialog.setHiddenNav(false);
+        loadingDialog.showDialog();
+        new Handler().postDelayed(() -> loadingDialog.dismissDialog(), 10000);
+
         int id = getIntent().getIntExtra(Constants.KEY_ID, BridgeOpcode.DEFAULT);//分别对应 CandyContext.KEY_EB_ID 与CandyOpcode.DEFAULT
         int position = getIntent().getIntExtra(Constants.KEY_VAR_1, BridgeOpcode.DEFAULT);
 
         presenter = new DogDetailPresenterImpl();
         presenter.attachView(this, this);
         presenter.initData(id, position);
+
     }
 
 

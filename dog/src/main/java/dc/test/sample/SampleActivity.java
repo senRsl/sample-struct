@@ -85,6 +85,14 @@ public class SampleActivity extends BaseSampleActivity {
                 break;
             case R.id.btn_permission:
 //                TestActivity.start(this);
+//                PermissionUtils.with(this)
+//                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
+//                        .callback(new AbsPermissionCallback() {
+//                            @Override
+//                            public void onResult(boolean isAllGrant, boolean hasDenied, boolean hasRationale) {
+//                                Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
+//                            }
+//                        }).request();
                 break;
             default:
                 DisplayActivity.start(this);

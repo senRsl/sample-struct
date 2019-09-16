@@ -92,13 +92,13 @@ ext {
 
     //Version 用于从库中拉取
     supportLibrary = "28.0.0"
-    coreVersion = "1.0.8"
-    bridgeVersion = "1.0.16"
-    adapterVersion = "1.0.0"
+    coreVersion = "latest.integration"
+    bridgeVersion = "latest.integration"
+    adapterVersion = "latest.integration"
     statVersion = "1.0.3"
-    shellVersion = "1.0.0"
-    swipeVersion = "1.0.0"
-    permissionVersion = "1.0.2"
+    shellVersion = "latest.integration"
+    swipeVersion = "latest.integration"
+    permissionVersion = "latest.integration"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -211,7 +211,7 @@ ext {
     struct_net = [
             "name"   : "net",
             "desc"   : "net for libs",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android.common",
             "repo"   : "arch",
             "org"    : "senrsl",

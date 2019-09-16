@@ -1,8 +1,6 @@
 package dc.test.sample;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -110,36 +108,36 @@ public class SampleActivity extends BaseSampleActivity {
                     }
                 }).start();
                 break;
-            case R.id.btn_net_post:
-                new Thread(() -> {
-                    try {
-//                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", "location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("location", "auto_ip");
-                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
-                        map.put("sb", 1);
-                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", map);
-                        Logger.w(getClass().getName(), result);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-                break;
-            case R.id.btn_net_get:
-                new Thread(() -> {
-                    try {
-//                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
-                        Map<String, Object> map = new HashMap<>();
-                        map.put("location", "auto_ip");
-                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
-                        map.put("sb", 1);
-                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", map);
-                        Logger.w(getClass().getName(), result);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-                break;
+//            case R.id.btn_net_post:
+//                new Thread(() -> {
+//                    try {
+////                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", "location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+//                        Map<String, Object> map = new HashMap<>();
+//                        map.put("location", "auto_ip");
+//                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
+//                        map.put("sb", 1);
+//                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", map);
+//                        Logger.w(getClass().getName(), result);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }).start();
+//                break;
+//            case R.id.btn_net_get:
+//                new Thread(() -> {
+//                    try {
+////                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+//                        Map<String, Object> map = new HashMap<>();
+//                        map.put("location", "auto_ip");
+//                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
+//                        map.put("sb", 1);
+//                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", map);
+//                        Logger.w(getClass().getName(), result);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }).start();
+//                break;
             default:
                 DisplayActivity.start(this);
                 break;

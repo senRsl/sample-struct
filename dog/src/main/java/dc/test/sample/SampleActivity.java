@@ -1,5 +1,9 @@
 package dc.test.sample;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,6 +16,7 @@ import butterknife.OnClick;
 import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
+import dc.android.common.net.WebUtils;
 import dc.android.common.utils.KeepInstance;
 import dc.android.common.utils.SharePreferencesUtils;
 import dc.android.common.utils.TaskUtils;
@@ -57,7 +62,8 @@ public class SampleActivity extends BaseSampleActivity {
     }
 
 
-    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash, R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe, R.id.btn_permission})
+    @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
+            R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe, R.id.btn_permission, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -93,6 +99,46 @@ public class SampleActivity extends BaseSampleActivity {
 //                                Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
 //                            }
 //                        }).request();
+                break;
+            case R.id.btn_net_post_json:
+                new Thread(() -> {
+                    try {
+                        String result = WebUtils.doPostAsJson("https://hooks.slack.com/services/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", "{'text':'啊啊啊啊'}");
+                        Logger.w(getClass().getName(), result);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+                break;
+            case R.id.btn_net_post:
+                new Thread(() -> {
+                    try {
+//                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", "location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("location", "auto_ip");
+                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
+                        map.put("sb", 1);
+                        String result = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", map);
+                        Logger.w(getClass().getName(), result);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+                break;
+            case R.id.btn_net_get:
+                new Thread(() -> {
+                    try {
+//                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+                        Map<String, Object> map = new HashMap<>();
+                        map.put("location", "auto_ip");
+                        map.put("key", "b272a27633424bb59a4b12acbfb4ab39");
+                        map.put("sb", 1);
+                        String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", map);
+                        Logger.w(getClass().getName(), result);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
                 break;
             default:
                 DisplayActivity.start(this);

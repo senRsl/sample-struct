@@ -1,2 +1,3 @@
 include ':app', ':dog'
 include ':struct:bridge', ':struct:base', ':struct:adapter', ':struct:stat', ':struct:shell', ':struct:swipe', ':struct:permission'
+include ':struct:net'

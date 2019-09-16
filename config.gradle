@@ -208,5 +208,16 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    struct_net = [
+            "name"   : "net",
+            "desc"   : "net for libs",
+            "version": "1.0.0",
+            "group"  : "dc.android.common",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
 
 }

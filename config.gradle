@@ -145,7 +145,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

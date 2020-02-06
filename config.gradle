@@ -200,7 +200,7 @@ ext {
     struct_permission = [
             "name"   : "permission",
             "desc"   : "permission for libs",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

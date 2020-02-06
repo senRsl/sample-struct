@@ -90,7 +90,7 @@ public class SampleActivity extends BaseSampleActivity {
 //                TestActivity.start(this);
                 break;
             case R.id.btn_permission:
-//                TestActivity.start(this);
+//                dc.android.libs.permission.TestActivity.start(this);
 //                PermissionUtils.with(this)
 //                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
 //                        .callback(new AbsPermissionCallback() {

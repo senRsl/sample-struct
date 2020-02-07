@@ -178,7 +178,7 @@ ext {
     struct_stat = [
             "name"   : "stat",
             "desc"   : "stat from libs",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -200,7 +200,7 @@ ext {
     struct_permission = [
             "name"   : "permission",
             "desc"   : "permission for libs",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

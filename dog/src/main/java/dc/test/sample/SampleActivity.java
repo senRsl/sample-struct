@@ -63,7 +63,8 @@ public class SampleActivity extends BaseSampleActivity {
 
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
-            R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe, R.id.btn_permission, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
+            R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe_1, R.id.btn_swipe_2, R.id.btn_swipe_2_nest_scroll, R.id.btn_swipe_3,
+            R.id.btn_permission, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -86,9 +87,18 @@ public class SampleActivity extends BaseSampleActivity {
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();
                 new TaskUtils().startLogin(this, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP, R.string.app_name);
                 break;
-            case R.id.btn_swipe:
-//                TestActivity.start(this);
-                break;
+//            case R.id.btn_swipe_1:
+//                TestSwipe1Activity.start(this);
+//                break;
+//            case R.id.btn_swipe_2:
+//                TestSwipe2Activity.start(this);
+//                break;
+//            case R.id.btn_swipe_2_nest_scroll:
+//                TestSwipe2NestScrollActivity.start(this);
+//                break;
+//            case R.id.btn_swipe_3:
+//                TestSwipe3Activity.start(this);
+//            break;
             case R.id.btn_permission:
 //                dc.android.libs.permission.TestActivity.start(this);
 //                PermissionUtils.with(this)

@@ -61,10 +61,28 @@
                 android:text="@string/tasks" />
 
             <Button
-                android:id="@+id/btn_swipe"
+                android:id="@+id/btn_swipe_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/swipe" />
+                android:text="@string/swipe_1" />
+
+            <Button
+                android:id="@+id/btn_swipe_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/swipe_2" />
+
+            <Button
+                android:id="@+id/btn_swipe_2_nest_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/swipe_2_nest_scroll" />
+
+            <Button
+                android:id="@+id/btn_swipe_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/swipe_3" />
 
             <Button
                 android:id="@+id/btn_permission"

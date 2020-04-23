@@ -11,7 +11,10 @@
     <string name="crash">Crash</string>
     <string name="hooks">Hooks</string>
     <string name="tasks">Tasks</string>
-    <string name="swipe">Swipe</string>
+    <string name="swipe_1">Swipe 1</string>
+    <string name="swipe_2">Swipe 2</string>
+    <string name="swipe_2_nest_scroll">Swipe 2 NestScroll</string>
+    <string name="swipe_3">Swipe 3</string>
     <string name="permission">Permission</string>
     <string name="net_post_json">net_doPostAsJson</string>
     <string name="net_post">net_post</string>

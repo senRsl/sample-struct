@@ -1,6 +1,7 @@
 package dc.test.sample;
 
 import dc.android.shell.ShellApplication;
+import dc.android.shell.listener.ShellActivityLifecycleCallbacks;
 
 /**
  * @author senrsl
@@ -9,4 +10,15 @@ import dc.android.shell.ShellApplication;
  * @CreateTime: 2019/8/2 8:26 PM
  */
 public class DogApplication extends ShellApplication {
+
+    public DogApplication() {
+        lifecycleCallbacks = new ShellActivityLifecycleCallbacks();
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        registerActivityLifecycleCallbacks(lifecycleCallbacks);
+    }
 }

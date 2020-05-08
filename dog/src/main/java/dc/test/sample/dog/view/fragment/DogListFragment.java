@@ -1,17 +1,5 @@
 package dc.test.sample.dog.view.fragment;
 
-import dc.android.bridge.adapter.PurposeRecyclerAdapter;
-import dc.android.bridge.fragment.BaseListFragment;
-import dc.android.base.listener.OnItemClickListener;
-import dc.android.base.listener.OnItemLongClickLIstener;
-import dc.test.sample.Constants;
-import dc.test.sample.R;
-import dc.test.sample.dog.contract.IDogListPresenter;
-import dc.test.sample.dog.contract.IDogListView;
-import dc.test.sample.dog.presenter.DogListPresenterImpl;
-import dc.test.sample.dog.view.adapter.DogListViewHolder;
-import dc.test.sample.domain.DogBean;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,7 +14,18 @@ import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import dc.android.base.listener.OnItemClickListener;
+import dc.android.base.listener.OnItemLongClickLIstener;
+import dc.android.bridge.adapter.PurposeRecyclerAdapter;
+import dc.android.bridge.fragment.BaseListFragment;
 import dc.common.Logger;
+import dc.test.sample.Constants;
+import dc.test.sample.R;
+import dc.test.sample.dog.contract.IDogListPresenter;
+import dc.test.sample.dog.contract.IDogListView;
+import dc.test.sample.dog.presenter.DogListPresenterImpl;
+import dc.test.sample.dog.view.adapter.DogListViewHolder;
+import dc.test.sample.domain.DogBean;
 
 /**
  * @author senrsl

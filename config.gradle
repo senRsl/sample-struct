@@ -145,7 +145,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -156,7 +156,7 @@ ext {
     struct_adapter = [
             "name"   : "adapter",
             "desc"   : "adapter for bridge",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android.bridge",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -167,7 +167,7 @@ ext {
     struct_shell = [
             "name"   : "shell",
             "desc"   : "shell for struct",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -200,7 +200,7 @@ ext {
     struct_permission = [
             "name"   : "permission",
             "desc"   : "permission for libs",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

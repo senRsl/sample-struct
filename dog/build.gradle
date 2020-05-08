@@ -47,7 +47,9 @@ dependencies {
 //    implementation project(':struct:stat')
 //    implementation project(':struct:shell')
 //    implementation project(':struct:swipe')
-//    implementation project(':struct:permission')
+//    implementation(project(':struct:permission')) {
+//        exclude group: 'dc.android', module: 'bridge'
+//    }
 //    implementation project(':struct:net')
 
     implementation "dc.android:core:$ext.coreVersion"

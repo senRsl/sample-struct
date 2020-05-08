@@ -94,7 +94,7 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
         //1,本地工具初始化
         layoutManager = new LinearLayoutManager(activity);
 //        layoutManager = new StaggeredGridLayoutManager(2, LinearLayout.VERTICAL);
-        adapter = new PurposeRecyclerAdapter(DogListViewHolder.class);
+        adapter = new PurposeRecyclerAdapter(DogListViewHolder.class, R.layout.item_dog);
         wrapper = new RecyclerWrapper(adapter);
 
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import dc.android.common.net.WebUtils;
 import dc.android.common.utils.KeepInstance;
 import dc.android.common.utils.SharePreferencesUtils;
 import dc.android.common.utils.TaskUtils;
+import dc.android.libs.PermissionUtils;
+import dc.android.libs.permission.AbsPermissionCallback;
 import dc.android.libs.stat.HooksStatUtils;
 import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
@@ -101,14 +104,14 @@ public class SampleActivity extends BaseSampleActivity {
 //            break;
             case R.id.btn_permission:
 //                dc.android.libs.permission.TestActivity.start(this);
-//                PermissionUtils.with(this)
-//                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
-//                        .callback(new AbsPermissionCallback() {
-//                            @Override
-//                            public void onResult(boolean isAllGrant, boolean hasDenied, boolean hasRationale) {
-//                                Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
-//                            }
-//                        }).request();
+                PermissionUtils.with(this)
+                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
+                        .callback(new AbsPermissionCallback() {
+                            @Override
+                            public void onResult(boolean isAllGrant, boolean hasDenied, boolean hasRationale) {
+                                Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
+                            }
+                        }).request();
                 break;
             case R.id.btn_net_post_json:
                 new Thread(() -> {

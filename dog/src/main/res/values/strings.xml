@@ -16,6 +16,7 @@
     <string name="swipe_2_nest_scroll">Swipe 2 NestScroll</string>
     <string name="swipe_3">Swipe 3</string>
     <string name="permission">Permission</string>
+    <string name="permission_check">PermissionCheck</string>
     <string name="net_post_json">net_doPostAsJson</string>
     <string name="net_post">net_post</string>
     <string name="net_get">net_get</string>

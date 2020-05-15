@@ -91,6 +91,13 @@
                 android:text="@string/permission" />
 
             <Button
+                android:id="@+id/btn_permission_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="@string/permission_check" />
+
+            <Button
                 android:id="@+id/btn_net_post_json"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -67,7 +67,7 @@ public class SampleActivity extends BaseSampleActivity {
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
             R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe_1, R.id.btn_swipe_2, R.id.btn_swipe_2_nest_scroll, R.id.btn_swipe_3,
-            R.id.btn_permission, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
+            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -103,7 +103,7 @@ public class SampleActivity extends BaseSampleActivity {
 //                TestSwipe3Activity.start(this);
 //            break;
             case R.id.btn_permission:
-//                dc.android.libs.permission.TestActivity.start(this);
+                //dc.android.libs.permission.TestActivity.start(this);
                 PermissionUtils.with(this)
                         .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
                         .callback(new AbsPermissionCallback() {
@@ -112,6 +112,17 @@ public class SampleActivity extends BaseSampleActivity {
                                 Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
                             }
                         }).request();
+                break;
+            case R.id.btn_permission_check:
+                boolean isAllGrant = PermissionUtils.with(this)
+                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
+                        .callback(new AbsPermissionCallback() {
+                            @Override
+                            public void onResult(boolean isAllGrant, boolean hasDenied, boolean hasRationale) {
+                                Logger.w(getClass().getName(), isAllGrant, hasDenied, hasRationale, listGrant, listDenied, listRationale);
+                            }
+                        }).check();
+                Logger.w(getClass().getSimpleName(), isAllGrant);
                 break;
             case R.id.btn_net_post_json:
                 new Thread(() -> {

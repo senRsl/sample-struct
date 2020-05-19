@@ -114,7 +114,42 @@ public class DogListWrapperFooterFragment extends BaseListWrapperFooterFragment 
         //2.2 界面布局
 
         wrapper.addFooter(footer);
-        wrapper.setOnloadMoreListener(this, rvList);
+//        wrapper.setOnloadMoreListener(this, rvList);
+        wrapper.setOnLoadMoreListener(this, rvList, new RecyclerView.OnScrollListener() {
+
+            boolean loadMore = false;
+
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (loadMore && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+                    if (layoutManager instanceof LinearLayoutManager) {
+                        LinearLayoutManager linearLayoutManager = ((LinearLayoutManager) layoutManager);
+                        if (linearLayoutManager.findLastVisibleItemPosition() >= adapter.getItemCount() - 1) {
+                            loadData();
+                        }
+                    }
+                }
+            }
+
+            private void loadData() {
+                loadMore = false;
+                onLoadMore();
+            }
+
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    loadMore = true;
+                } else {
+                    loadMore = false;
+                }
+            }
+
+        });
 
         rvList.setAdapter(wrapper);
 //        rvList.addOnScrollListener(listenerScroll);

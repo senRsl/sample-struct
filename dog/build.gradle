@@ -59,7 +59,7 @@ dependencies {
     implementation "dc.android:shell:$ext.shellVersion"
     implementation "dc.android.libs:swipe:$ext.swipeVersion"
     implementation "dc.android.libs:permission:$ext.permissionVersion"
-    implementation "dc.android.common:net:1.0.1"
+    implementation "dc.android.common:net:$ext.netVersion"
 
     implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
     implementation "com.android.support:design:$ext.supportLibrary"

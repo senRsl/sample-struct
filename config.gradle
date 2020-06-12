@@ -99,6 +99,7 @@ ext {
     shellVersion = "latest.integration"
     swipeVersion = "latest.integration"
     permissionVersion = "latest.integration"
+    netVersion = "latest.integration"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -211,7 +212,7 @@ ext {
     struct_net = [
             "name"   : "net",
             "desc"   : "net for libs",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "group"  : "dc.android.common",
             "repo"   : "arch",
             "org"    : "senrsl",

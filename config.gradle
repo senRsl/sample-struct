@@ -189,7 +189,7 @@ ext {
     struct_swipe = [
             "name"   : "swipe",
             "desc"   : "swipe for libs",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

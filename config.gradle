@@ -91,26 +91,26 @@ ext {
     ]
 
     //Version 用于从库中拉取
-    supportLibrary = "28.0.0"
-    coreVersion = "latest.integration"
-    bridgeVersion = "latest.integration"
-    adapterVersion = "1.0.2"
+    supportLibrary = "1.1.0"
+    coreVersion = "1.1.8"
+    bridgeVersion = "1.1.21"
+    adapterVersion = "1.1.2"
     statVersion = "1.0.3"
-    shellVersion = "latest.integration"
-    swipeVersion = "latest.integration"
-    permissionVersion = "latest.integration"
-    netVersion = "latest.integration"
+    shellVersion = "1.0.1"
+    swipeVersion = "1.0.1"
+    permissionVersion = "1.1.7"
+    netVersion = "1.0.2"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
     gsonConvertVersion = "2.0.2"
 
-    butterknifeVersion = "8.8.1"
+    butterknifeVersion = "10.2.1"
     daggerVersion = "2.21"
 
     depes = [
-            "v7"        : "com.android.support:appcompat-v7:${supportLibrary}",
-            "constraint": "com.android.support.constraint:constraint-layout:1.1.0",
+            "v7"        : "androidx.appcompat:appcompat:${supportLibrary}",
+            "constraint": "androidx.constraintlayout:constraintlayout:1.1.0",
 //            "struct_core": "dc.android:core:${coreVersion}",
 //            "struct_bridge": "dc.android:bridge:${bridgeVersion}",
     ]
@@ -120,8 +120,8 @@ ext {
     ]
 
     atis = [
-            "test"    : "com.android.support.test:runner:1.0.2",
-            "espresso": "com.android.support.test.espresso:espresso-core:3.0.2",
+            "test"    : "androidx.test:runner:1.2.0",
+            "espresso": "androidx.test.espresso:espresso-core:3.2.0",
     ]
 
     runs = [
@@ -135,7 +135,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.8",
+            "version": "1.1.8",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -146,7 +146,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.21",
+            "version": "1.1.21",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -157,7 +157,7 @@ ext {
     struct_adapter = [
             "name"   : "adapter",
             "desc"   : "adapter for bridge",
-            "version": "1.0.2",
+            "version": "1.1.2",
             "group"  : "dc.android.bridge",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -165,6 +165,7 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    //与support同步
     struct_shell = [
             "name"   : "shell",
             "desc"   : "shell for struct",
@@ -176,6 +177,7 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    //与support同步
     struct_stat = [
             "name"   : "stat",
             "desc"   : "stat from libs",
@@ -187,6 +189,7 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    //与support同步
     struct_swipe = [
             "name"   : "swipe",
             "desc"   : "swipe for libs",
@@ -201,7 +204,7 @@ ext {
     struct_permission = [
             "name"   : "permission",
             "desc"   : "permission for libs",
-            "version": "1.0.7",
+            "version": "1.1.7",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -209,6 +212,7 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    //与support同步
     struct_net = [
             "name"   : "net",
             "desc"   : "net for libs",

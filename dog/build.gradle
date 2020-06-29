@@ -11,7 +11,7 @@ android {
         versionCode cfg.versionCode
         versionName cfg.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -61,8 +61,9 @@ dependencies {
     implementation "dc.android.libs:permission:$ext.permissionVersion"
     implementation "dc.android.common:net:$ext.netVersion"
 
-    implementation "com.android.support:recyclerview-v7:$ext.supportLibrary"
-    implementation "com.android.support:design:$ext.supportLibrary"
+    implementation "androidx.recyclerview:recyclerview:$ext.supportLibrary"
+    implementation "com.google.android.material:material:$ext.supportLibrary"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$ext.supportLibrary"
 
     implementation "com.jakewharton:butterknife:$ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$ext.butterknifeVersion"

@@ -2,21 +2,19 @@ package dc.test.sample.dog.view.adapter;
 
 import java.util.List;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import dc.android.base.listener.OnItemClickListener;
-import dc.android.base.listener.OnItemLongClickLIstener;
-import dc.test.sample.R;
-import dc.test.sample.domain.DogBean;
-
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dc.android.base.listener.OnItemClickListener;
+import dc.android.base.listener.OnItemLongClickLIstener;
 import dc.common.Logger;
+import dc.test.sample.R;
+import dc.test.sample.domain.DogBean;
 
 /**
  * 独立方式

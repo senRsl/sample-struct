@@ -97,7 +97,7 @@ ext {
     adapterVersion = "1.0.2"
     statVersion = "1.0.3"
     shellVersion = "1.0.1"
-    swipeVersion = "1.0.1"
+    swipeVersion = "1.0.2"
     permissionVersion = "1.0.7"
     netVersion = "1.0.2"
     bannerVersion = "1.0.0"

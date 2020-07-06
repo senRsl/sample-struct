@@ -93,9 +93,9 @@ public class SampleActivity extends BaseSampleActivity {
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();
                 new TaskUtils().startLogin(this, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP, R.string.app_name);
                 break;
-//            case R.id.btn_swipe:
+            case R.id.btn_swipe:
 //                TestSwipeActivity.start(this);
-//                break;
+                break;
             case R.id.btn_permission:
                 //dc.android.libs.permission.TestActivity.start(this);
                 PermissionUtils.with(this)

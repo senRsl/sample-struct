@@ -19,6 +19,7 @@ import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.net.WebUtils;
 import dc.android.common.utils.KeepInstance;
+import dc.android.common.utils.ResourceUtils;
 import dc.android.common.utils.SharePreferencesUtils;
 import dc.android.common.utils.TaskUtils;
 import dc.android.libs.PermissionUtils;
@@ -56,6 +57,7 @@ public class SampleActivity extends BaseSampleActivity {
     protected void initLayout() {
         super.initLayout();
         tvTitle.setText(R.string.app_name);
+        Logger.w(this, ResourceUtils.getString(R.string.app_name),800);
     }
 
     @Override

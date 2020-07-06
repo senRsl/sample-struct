@@ -57,7 +57,7 @@ public class SampleActivity extends BaseSampleActivity {
     protected void initLayout() {
         super.initLayout();
         tvTitle.setText(R.string.app_name);
-        Logger.w(this, ResourceUtils.getString(R.string.app_name),800);
+        Logger.w(this, ResourceUtils.getString(R.string.app_name), 800);
     }
 
     @Override
@@ -69,7 +69,8 @@ public class SampleActivity extends BaseSampleActivity {
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
             R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe,
-            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
+            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
+            R.id.btn_banner})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -156,6 +157,9 @@ public class SampleActivity extends BaseSampleActivity {
                         e.printStackTrace();
                     }
                 }).start();
+                break;
+            case R.id.btn_banner:
+//                TestBannerActivity.start(this);
                 break;
             default:
                 DisplayActivity.start(this);

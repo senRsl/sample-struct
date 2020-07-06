@@ -100,6 +100,7 @@ ext {
     swipeVersion = "1.0.1"
     permissionVersion = "1.0.7"
     netVersion = "1.0.2"
+    bannerVersion = "1.0.0"
 
     retrofit2Version = "2.4.0"
     okhttpVersion = "3.10.0"
@@ -190,7 +191,7 @@ ext {
     struct_swipe = [
             "name"   : "swipe",
             "desc"   : "swipe for libs",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",
@@ -214,6 +215,17 @@ ext {
             "desc"   : "net for libs",
             "version": "1.0.2",
             "group"  : "dc.android.common",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
+    struct_banner = [
+            "name"   : "banner",
+            "desc"   : "banner for libs",
+            "version": "1.0.0",
+            "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",
             "siteUrl": "https://senrsl.blogspot.com/",

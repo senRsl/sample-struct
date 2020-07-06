@@ -51,6 +51,7 @@ dependencies {
 //        exclude group: 'dc.android', module: 'bridge'
 //    }
 //    implementation project(':struct:net')
+//    implementation project(':struct:banner')
 
     implementation "dc.android:core:$ext.coreVersion"
     implementation "dc.android:bridge:$ext.bridgeVersion"

@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/dog" />
             <option value="$PROJECT_DIR$/struct" />
             <option value="$PROJECT_DIR$/struct/adapter" />
+            <option value="$PROJECT_DIR$/struct/banner" />
             <option value="$PROJECT_DIR$/struct/base" />
             <option value="$PROJECT_DIR$/struct/bridge" />
             <option value="$PROJECT_DIR$/struct/net" />

@@ -59,6 +59,7 @@ dependencies {
     implementation "dc.android.libs:stat:latest.integration"
     implementation "dc.android:shell:$ext.shellVersion"
     implementation "dc.android.libs:swipe:$ext.swipeVersion"
+//    implementation "dc.android.libs:banner:$ext.bannerVersion"
     implementation "dc.android.libs:permission:$ext.permissionVersion"
     implementation "dc.android.common:net:$ext.netVersion"
 

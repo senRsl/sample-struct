@@ -18,6 +18,8 @@ import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.net.WebUtils;
+import dc.android.common.utils.AbsClickListener;
+import dc.android.common.utils.AbsSingleClickListener;
 import dc.android.common.utils.KeepInstance;
 import dc.android.common.utils.ResourceUtils;
 import dc.android.common.utils.SharePreferencesUtils;
@@ -57,8 +59,26 @@ public class SampleActivity extends BaseSampleActivity {
     protected void initLayout() {
         super.initLayout();
         tvTitle.setText(R.string.app_name);
+        Logger.w(this, ResourceUtils.getString(R.string.app_name), 800);
 
-        Logger.w(this, ResourceUtils.getString(R.string.app_name));
+        findViewById(R.id.btn_click).setOnClickListener(new AbsClickListener() {
+            @Override
+            protected void onSingleClick(View v) {
+                Logger.w(SampleActivity.this, "single", 300);
+            }
+
+            @Override
+            protected void onFastClick(View v) {
+                Logger.w(SampleActivity.this, "fast", 300);
+            }
+        });
+
+        findViewById(R.id.btn_click_single).setOnClickListener(new AbsSingleClickListener(3000) {
+            @Override
+            protected void onSingleClick(View v) {
+                Logger.w(SampleActivity.this, "single", 300);
+            }
+        });
     }
 
     @Override
@@ -70,7 +90,8 @@ public class SampleActivity extends BaseSampleActivity {
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
             R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe,
-            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get})
+            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
+            R.id.btn_banner})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -157,6 +178,9 @@ public class SampleActivity extends BaseSampleActivity {
                         e.printStackTrace();
                     }
                 }).start();
+                break;
+            case R.id.btn_banner:
+//                TestBannerActivity.start(this);
                 break;
             default:
                 DisplayActivity.start(this);

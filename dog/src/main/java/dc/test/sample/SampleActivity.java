@@ -18,6 +18,8 @@ import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.net.WebUtils;
+import dc.android.common.utils.AbsClickListener;
+import dc.android.common.utils.AbsSingleClickListener;
 import dc.android.common.utils.KeepInstance;
 import dc.android.common.utils.ResourceUtils;
 import dc.android.common.utils.SharePreferencesUtils;
@@ -58,6 +60,25 @@ public class SampleActivity extends BaseSampleActivity {
         super.initLayout();
         tvTitle.setText(R.string.app_name);
         Logger.w(this, ResourceUtils.getString(R.string.app_name), 800);
+
+        findViewById(R.id.btn_click).setOnClickListener(new AbsClickListener() {
+            @Override
+            protected void onSingleClick(View v) {
+                Logger.w(SampleActivity.this, "single", 300);
+            }
+
+            @Override
+            protected void onFastClick(View v) {
+                Logger.w(SampleActivity.this, "fast", 300);
+            }
+        });
+
+        findViewById(R.id.btn_click_single).setOnClickListener(new AbsSingleClickListener(3000) {
+            @Override
+            protected void onSingleClick(View v) {
+                Logger.w(SampleActivity.this, "single", 300);
+            }
+        });
     }
 
     @Override

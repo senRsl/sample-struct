@@ -232,5 +232,16 @@ ext {
             "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
     ]
 
+    struct_browser = [
+            "name"   : "browser",
+            "desc"   : "browser for libs",
+            "version": "1.0.0",
+            "group"  : "dc.android.libs",
+            "repo"   : "arch",
+            "org"    : "senrsl",
+            "siteUrl": "https://senrsl.blogspot.com/",
+            "vcsUrl" : "https://github.com/senRsl/sample-struct.git",
+    ]
+
 
 }

@@ -130,6 +130,13 @@
                 android:text="@string/click_single"
                 android:textAllCaps="false" />
 
+            <Button
+                android:id="@+id/btn_call"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/call"
+                android:textAllCaps="false" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -20,6 +20,7 @@
     <string name="banner">banner</string>
     <string name="click">click</string>
     <string name="click_single">singleClick</string>
+    <string name="call">call</string>
 
     <string name="dog_title_list">Dog List</string>
     <string name="dog_title_list_wrapper">Dog List Wrapper</string>

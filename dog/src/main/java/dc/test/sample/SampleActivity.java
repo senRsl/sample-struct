@@ -91,7 +91,7 @@ public class SampleActivity extends BaseSampleActivity {
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
             R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe,
             R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
-            R.id.btn_banner})
+            R.id.btn_banner, R.id.btn_call})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
             case R.id.btn_list_dog:
@@ -181,6 +181,9 @@ public class SampleActivity extends BaseSampleActivity {
                 break;
             case R.id.btn_banner:
 //                TestBannerActivity.start(this);
+                break;
+            case R.id.btn_call:
+                TaskUtils.call(this, "10086");
                 break;
             default:
                 DisplayActivity.start(this);

@@ -120,7 +120,7 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_permission:
                 //dc.android.libs.permission.TestActivity.start(this);
                 PermissionUtils.with(this)
-                        .permisson(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA})
+                        .permisson(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA)
                         .callback(new AbsPermissionCallback() {
                             @Override
                             public void onResult(boolean isAllGrant, boolean hasDenied, boolean hasRationale) {

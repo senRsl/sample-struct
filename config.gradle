@@ -98,7 +98,7 @@ ext {
     statVersion = "1.0.3"
     shellVersion = "1.0.1"
     swipeVersion = "1.0.1"
-    permissionVersion = "1.1.7"
+    permissionVersion = "1.1.8"
     netVersion = "1.0.2"
 
     retrofit2Version = "2.4.0"
@@ -204,7 +204,7 @@ ext {
     struct_permission = [
             "name"   : "permission",
             "desc"   : "permission for libs",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

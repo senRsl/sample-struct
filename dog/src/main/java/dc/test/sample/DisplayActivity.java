@@ -21,8 +21,10 @@ import dc.android.common.utils.AutoMarginUtils;
  */
 public class DisplayActivity extends BridgeActivity {
 
+    @Nullable
     @BindView(R.id.tv_name_cn)
     TextView tvNameCn;
+    @Nullable
     @BindView(R.id.et_from)
     EditText etFrom;
 
@@ -41,14 +43,23 @@ public class DisplayActivity extends BridgeActivity {
     protected void initLayout() {
         super.initLayout();
         AutoMarginUtils.setSize(getApplication(), true, BridgeContext.DESIGN_WIDTH, BridgeContext.DESIGN_HEIGHT);
+
+        barWrapper.setIdRes(R.layout.activity_bar, R.style.FullTheme, R.id.view_status_bar_place, R.id.layout_frame_content_place);
+
+        //空布局
 //        setLayout(true, BridgeOpcode.DEFAULT, true, Color.WHITE);
+        //状态栏布局
         setLayout(true, R.layout.activity_detail_dog, true, Color.WHITE);
+        //全屏
+//        barWrapper.setShowFull(true);
+//        setLayout(false, R.layout.activity_detail_dog, true, Color.WHITE);
+
         ButterKnife.bind(this);
     }
 
     @Override
     protected void initData() {
         super.initData();
-        tvNameCn.setText(getClass().getSimpleName());
+        if (null != tvNameCn) tvNameCn.setText(getClass().getSimpleName());
     }
 }

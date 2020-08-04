@@ -93,7 +93,7 @@ ext {
     //Version 用于从库中拉取
     supportLibrary = "28.0.0"
     coreVersion = "1.0.8"
-    bridgeVersion = "1.0.25"
+    bridgeVersion = "1.0.26"
     adapterVersion = "1.0.2"
     statVersion = "1.0.3"
     shellVersion = "1.0.1"
@@ -147,7 +147,7 @@ ext {
     struct_bridge = [
             "name"   : "bridge",
             "desc"   : "bridge for struct",
-            "version": "1.0.25",
+            "version": "1.0.26",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

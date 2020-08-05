@@ -191,6 +191,7 @@ public class SampleActivity extends BaseSampleActivity {
         }
     }
 
+    //先hook，再crash才会发
     private void initCrash() {
         String env = null;
         JSONObject jo = new JSONObject();
@@ -214,9 +215,9 @@ public class SampleActivity extends BaseSampleActivity {
         Logger.w(dogs);
         int i = 0;
         for (String dog : dogs) {
-            Logger.w(dog);
+            //Logger.w(dog);
             String[] dogValue = dog.split(",");
-            Logger.w(dogValue);
+            //Logger.w(dogValue);
             DogBean bean = new DogBean(dogValue[0], dogValue[1] + i++, dogValue[2]);
             Constants.listDogs.add(bean);
         }

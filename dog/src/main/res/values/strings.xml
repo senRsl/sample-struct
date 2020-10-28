@@ -10,6 +10,7 @@
     <string name="empty"></string>
     <string name="crash">Crash</string>
     <string name="hooks">Hooks</string>
+    <string name="ding">Ding</string>
     <string name="tasks">Tasks</string>
     <string name="swipe_sample">Swipe Sample</string>
     <string name="permission">Permission</string>

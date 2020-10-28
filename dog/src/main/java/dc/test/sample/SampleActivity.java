@@ -27,6 +27,7 @@ import dc.android.common.utils.TaskUtils;
 import dc.android.libs.PermissionUtils;
 import dc.android.libs.permission.AbsPermissionCallback;
 import dc.android.libs.stat.HooksStatUtils;
+import dc.android.libs.stat.MienInstance;
 import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
 import dc.test.sample.bridge.BaseSampleActivity;
@@ -89,7 +90,7 @@ public class SampleActivity extends BaseSampleActivity {
 
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
-            R.id.btn_hooks, R.id.btn_tasks, R.id.btn_swipe,
+            R.id.btn_hooks, R.id.btn_ding, R.id.btn_tasks, R.id.btn_swipe,
             R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
             R.id.btn_banner, R.id.btn_call})
     public void onViewClickedContent(View v) {
@@ -109,6 +110,13 @@ public class SampleActivity extends BaseSampleActivity {
                 BridgeContext.isDebug = false;
                 BridgeContext.isReport = true;
                 HooksStatUtils.hooks(getApplication());
+                break;
+            case R.id.btn_ding:
+//                new SendManager(this, message -> Logger.w(message)).sendDingTalk(getClass().getCanonicalName());
+//                new SendManager(this, message -> Logger.w(message)).sendDingTalk(new CollectManager(this).collect(getClass().getCanonicalName()));
+                MienInstance.getInstance().setEnable(true);
+                MienInstance.getInstance().init(getApplicationContext());
+                MienInstance.getInstance().sendDingTalk(getClass().getCanonicalName(), true);
                 break;
             case R.id.btn_tasks:
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();

@@ -26,8 +26,8 @@ import dc.android.common.utils.SharePreferencesUtils;
 import dc.android.common.utils.TaskUtils;
 import dc.android.libs.PermissionUtils;
 import dc.android.libs.permission.AbsPermissionCallback;
+import dc.android.libs.stat.BehaviorInstance;
 import dc.android.libs.stat.HooksStatUtils;
-import dc.android.libs.stat.MienInstance;
 import dc.android.libs.stat.SlackInstance;
 import dc.common.Logger;
 import dc.test.sample.bridge.BaseSampleActivity;
@@ -114,9 +114,10 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_ding:
 //                new SendManager(this, message -> Logger.w(message)).sendDingTalk(getClass().getCanonicalName());
 //                new SendManager(this, message -> Logger.w(message)).sendDingTalk(new CollectManager(this).collect(getClass().getCanonicalName()));
-                MienInstance.getInstance().setEnable(true);
-                MienInstance.getInstance().init(getApplicationContext());
-                MienInstance.getInstance().sendDingTalk(getClass().getCanonicalName(), true);
+                BridgeContext.isReport = true;
+                //BehaviorInstance.getInstance().setEnable(false);
+                BehaviorInstance.getInstance().init();
+                BehaviorInstance.getInstance().sendDingTalk(getClass().getCanonicalName(), true);
                 break;
             case R.id.btn_tasks:
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();

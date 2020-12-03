@@ -136,7 +136,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

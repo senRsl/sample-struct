@@ -95,7 +95,7 @@ ext {
     coreVersion = "1.0.10"
     bridgeVersion = "1.0.26"
     adapterVersion = "1.0.2"
-    statVersion = "1.0.8.2"
+    statVersion = "1.0.8.3"
     shellVersion = "1.0.1"
     swipeVersion = "1.0.2"
     permissionVersion = "1.0.10"
@@ -180,7 +180,7 @@ ext {
     struct_stat = [
             "name"   : "stat",
             "desc"   : "stat from libs",
-            "version": "1.0.8.2",
+            "version": "1.0.8.3",
             "group"  : "dc.android.libs",
             "repo"   : "arch",
             "org"    : "senrsl",

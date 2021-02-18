@@ -107,6 +107,7 @@ public class SampleActivity extends BaseSampleActivity {
                 int i = 1 / 0;
                 break;
             case R.id.btn_hooks:
+                //先crash，再hook才会有数据
                 BridgeContext.isDebug = false;
                 BridgeContext.isReport = true;
                 HooksStatUtils.hooks(getApplication());

@@ -56,7 +56,7 @@ dependencies {
     implementation "dc.android:core:$ext.coreVersion"
     implementation "dc.android:bridge:$ext.bridgeVersion"
     implementation "dc.android.bridge:adapter:$ext.adapterVersion"
-    implementation "dc.android.libs:stat:latest.integration"
+    implementation "dc.android.libs:stat:$ext.statVersion"
     implementation "dc.android:shell:$ext.shellVersion"
     implementation "dc.android.libs:swipe:$ext.swipeVersion"
     implementation "dc.android.libs:banner:$ext.bannerVersion"

@@ -94,7 +94,7 @@ ext {
     supportLibrary = "28.0.0"
     coreVersion = "1.0.10"
     bridgeVersion = "1.0.26"
-    adapterVersion = "1.0.2"
+    adapterVersion = "1.0.3"
     statVersion = "1.0.8.3"
     shellVersion = "1.0.1"
     swipeVersion = "1.0.2"
@@ -158,7 +158,7 @@ ext {
     struct_adapter = [
             "name"   : "adapter",
             "desc"   : "adapter for bridge",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "group"  : "dc.android.bridge",
             "repo"   : "arch",
             "org"    : "senrsl",

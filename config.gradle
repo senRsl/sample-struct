@@ -92,7 +92,7 @@ ext {
 
     //Version 用于从库中拉取
     supportLibrary = "1.1.0"
-    coreVersion = "1.1.8"
+    coreVersion = "1.1.10"
     bridgeVersion = "1.1.26"
     adapterVersion = "1.1.3"
     statVersion = "1.0.3"
@@ -135,7 +135,7 @@ ext {
     struct_core = [
             "name"   : "core",
             "desc"   : "core for struct",
-            "version": "1.1.8",
+            "version": "1.1.10",
             "group"  : "dc.android",
             "repo"   : "arch",
             "org"    : "senrsl",

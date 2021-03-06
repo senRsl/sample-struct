@@ -1,6 +1,8 @@
 package dc.test.sample;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,11 +13,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import butterknife.BindArray;
 import butterknife.OnClick;
 import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
+import dc.android.common.StatContext;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.net.WebUtils;
 import dc.android.common.utils.AbsClickListener;
@@ -90,7 +94,7 @@ public class SampleActivity extends BaseSampleActivity {
 
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
-            R.id.btn_hooks, R.id.btn_ding, R.id.btn_tasks, R.id.btn_swipe,
+            R.id.btn_hooks, R.id.btn_ding, R.id.btn_ding_markdown, R.id.btn_tasks, R.id.btn_swipe,
             R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
             R.id.btn_banner, R.id.btn_call})
     public void onViewClickedContent(View v) {
@@ -119,6 +123,11 @@ public class SampleActivity extends BaseSampleActivity {
                 //BehaviorInstance.getInstance().setEnable(false);
                 BehaviorInstance.getInstance().init();
                 BehaviorInstance.getInstance().sendDingTalk(getClass().getCanonicalName(), true);
+                break;
+            case R.id.btn_ding_markdown:
+                BridgeContext.isReport = true;
+                BehaviorInstance.getInstance().init();
+                BehaviorInstance.getInstance().sendDingTalk(StatContext.KEY_DING_TYPE_MARKDOWN, generateMarkdown(), true);
                 break;
             case R.id.btn_tasks:
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();
@@ -233,6 +242,42 @@ public class SampleActivity extends BaseSampleActivity {
         }
     }
 
+    private String generateMarkdown() {
+        StringBuilder sb = new StringBuilder();
+//        sb.append("#### 杭州天气 @150XXXXXXXX \n> 9度，西北风1级，空气良89，相对温度73%\n> ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n> ###### 10点20分发布 [天气](https://www.dingtalk.com) \n");
+        sb.append("## ").append(ResourceUtils.getString(R.string.app_name)).append("\n");
+        sb.append(getClass().getCanonicalName()).append("\n");
+        sb.append("- ").append(getClass().getName()).append("\n");
+        sb.append("- ").append(getClass().getSimpleName()).append("\n");
+        sb.append("- ").append(getClass().getPackage().getName()).append("\n");
+//        try {
+//             图片大于10k就超限了，有啥用
+//            ///storage/emulated/0
+//            String path = Environment.getExternalStorageDirectory().getCanonicalPath() + "/SENRSL/test.png";
+////            String path = Environment.getExternalStorageDirectory().getCanonicalPath() + "/SENRSL/PXL_20210306_102224614.jpg";
+//            sb.append("![pic](data:image/png;base64," + pic2base64(path) + ")");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            sb.append(e.getMessage());
+//        }
+        return sb.toString();
+    }
+
+    private String pic2base64(String path) throws IOException {
+        InputStream is = null;
+        byte[] data;
+        String result;
+
+        try {
+            is = new FileInputStream(path);
+            data = new byte[is.available()];
+            is.read(data);
+            result = Base64.encodeToString(data, Base64.DEFAULT);
+        } finally {
+            if (null != is) is.close();
+        }
+        return result;
+    }
 
     private CrashHandler.Callback cbCrash = (ex, info) -> SlackInstance.getInstance().send(getClass().getName() + BridgeContext.TAB + info);
 

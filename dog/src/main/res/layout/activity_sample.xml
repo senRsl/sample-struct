@@ -75,6 +75,13 @@
                 android:textAllCaps="false" />
 
             <Button
+                android:id="@+id/btn_slack_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/slack_file"
+                android:textAllCaps="false" />
+
+            <Button
                 android:id="@+id/btn_tasks"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,6 +128,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/net_get"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_net_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/net_test"
                 android:textAllCaps="false" />
 
             <Button

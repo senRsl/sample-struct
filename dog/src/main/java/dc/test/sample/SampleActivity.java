@@ -1,5 +1,6 @@
 package dc.test.sample;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,12 +14,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Base64;
 import android.view.View;
 import butterknife.BindArray;
 import butterknife.OnClick;
 import dc.android.common.BridgeContext;
 import dc.android.common.BridgeOpcode;
+import dc.android.common.NetContext;
 import dc.android.common.StatContext;
 import dc.android.common.handler.CrashHandler;
 import dc.android.common.net.WebUtils;
@@ -94,8 +97,8 @@ public class SampleActivity extends BaseSampleActivity {
 
 
     @OnClick({R.id.btn_list_dog, R.id.btn_list_dog_wrapper, R.id.btn_add_dog, R.id.btn_display, R.id.btn_crash,
-            R.id.btn_hooks, R.id.btn_ding, R.id.btn_ding_markdown, R.id.btn_tasks, R.id.btn_swipe,
-            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get,
+            R.id.btn_hooks, R.id.btn_ding, R.id.btn_ding_markdown, R.id.btn_slack_file, R.id.btn_tasks, R.id.btn_swipe,
+            R.id.btn_permission, R.id.btn_permission_check, R.id.btn_net_post_json, R.id.btn_net_post, R.id.btn_net_get, R.id.btn_net_test,
             R.id.btn_banner, R.id.btn_call})
     public void onViewClickedContent(View v) {
         switch (v.getId()) {
@@ -129,6 +132,14 @@ public class SampleActivity extends BaseSampleActivity {
                 BehaviorInstance.getInstance().init();
                 BehaviorInstance.getInstance().sendDingTalk(StatContext.KEY_DING_TYPE_MARKDOWN, generateMarkdown(), true);
                 break;
+            case R.id.btn_slack_file:
+                SlackInstance.getInstance().setEnable(true);
+                SlackInstance.getInstance().init(getApplicationContext());
+
+//                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SENRSL/test.png";
+                String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/SENRSL/PXL_20210306_102224614.jpg";
+                SlackInstance.getInstance().send("msg from sample", new File(path));
+                break;
             case R.id.btn_tasks:
                 BridgeContext.CLS_LOGIN = DisplayActivity.class.getCanonicalName();
                 new TaskUtils().startLogin(this, Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP, R.string.app_name);
@@ -161,7 +172,7 @@ public class SampleActivity extends BaseSampleActivity {
             case R.id.btn_net_post_json:
                 new Thread(() -> {
                     try {
-                        String result = WebUtils.doPostAsJson("https://hooks.slack.com/services/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", "{'text':'啊啊啊啊'}");
+                        String result = WebUtils.doPostAsJson("https://hooks.slack.com/services/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F", "{'text':'啊啊啊啊'}");
                         Logger.w(getClass().getName(), result);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -194,6 +205,55 @@ public class SampleActivity extends BaseSampleActivity {
                         String result = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", map);
                         Logger.w(getClass().getName(), result);
                     } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }).start();
+                break;
+            case R.id.btn_net_test:
+                new Thread(() -> {
+                    try {
+                        //doGet
+//                        String result = WebUtils.doGet("https://api.myip.com");
+//                        Logger.w("get仅地址:" + result);
+//                        String result1 = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now?location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+//                        Logger.w("get参数直挂:" + result1);
+//                        String result2 = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", "location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39", null);
+//                        Logger.w("get参数msg:" + result2);
+//                        Map<String, Object> map3 = new HashMap<>();
+//                        map3.put("location", "auto_ip");
+//                        map3.put("key", "b272a27633424bb59a4b12acbfb4ab39");
+//                        map3.put("sb", 1);
+//                        String result3 = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", map3);
+//                        Logger.w("get参数map:" + result3);
+//                        String result4 = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now", "aaaaa=1&bbbb=2&cccc=3", map3);
+//                        Logger.w("get参数map和msg:" + result4);
+//                        String result5 = WebUtils.doGet("https://free-api.heweather.net/s6/weather/now?1=2", "aaaaa=1&bbbb=2&cccc=3", map3);
+//                        Logger.w("get参数map和msg:" + result5);
+
+                        //do post
+//                        String result6 = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", "location=auto_ip&key=b272a27633424bb59a4b12acbfb4ab39");
+//                        Logger.w("post msg" + result6);
+//                        String result7 = WebUtils.doPost("https://free-api.heweather.net/s6/weather/now", map3);
+//                        Logger.w("post map" + result7);
+//                        String result8 = WebUtils.doPost(NetContext.CONTENT_TYPE_FORM_ENCODED, "https://free-api.heweather.net/s6/weather/now", "aaaa=1&bbb=2&ccc=3", map3);
+//                        Logger.w("post msg and map" + result8);
+
+                        Map<String, Object> map4 = new HashMap<>();
+                        map4.put("sb", 1);
+                        map4.put("token", "xoxb-71037xxxxx-18xxx5xxxx-Ko5x6zeNZFxxxxxxxG");
+                        map4.put("content", "xxxx内容");
+                        map4.put("channels", "C01QM5GRJxQ4");
+                        map4.put("initial_comment", "initial msg show");
+                        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/SENRSL/test.png");
+                        Logger.w(file.getCanonicalPath(), file.length());
+                        map4.put(file.getName(), file);
+                        String result8 = WebUtils.doPost(NetContext.CONTENT_TYPE_FORM_DATA, "https://slack.com/api/files.upload", "aaaa=1&bbb=2&ccc=3", map4);
+                        Logger.w("post msg and map" + result8);
+//                        String result9 = WebUtils.doPost(NetContext.CONTENT_TYPE_FORM_DATA, "https://slack.com/api/files.upload", "aaaaaa", null);
+//                        Logger.w("post msg no map" + result9);
+//                        String result10 = WebUtils.doPost(NetContext.CONTENT_TYPE_FORM_DATA, "https://slack.com/api/files.upload", null, map4);
+//                        Logger.w("post map no msg" + result10);
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }).start();

@@ -12,6 +12,7 @@
     <string name="hooks">Hooks</string>
     <string name="ding">Ding</string>
     <string name="ding_markdown">Ding Markdown</string>
+    <string name="slack_file">send file</string>
     <string name="tasks">Tasks</string>
     <string name="swipe_sample">Swipe Sample</string>
     <string name="permission">Permission</string>
@@ -19,6 +20,7 @@
     <string name="net_post_json">net_doPostAsJson</string>
     <string name="net_post">net_post</string>
     <string name="net_get">net_get</string>
+    <string name="net_test">net_test</string>
     <string name="banner">banner</string>
     <string name="click">click</string>
     <string name="click_single">singleClick</string>
